@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilhete Único SPTrans - Protótipo Evoluído</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --sptrans-blue: #0055A4;
+            --sptrans-dark: #00386b;
+            --sptrans-accent: #FFCC00;
+            --text-dark: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f7f9;
+            color: var(--text-dark);
+        }
+
+        /* Acessibilidade: Foco visível */
+        :focus-visible {
+            outline: 3px solid var(--sptrans-accent);
+            outline-offset: 3px;
+        }
+
+        /* Header */
+        .navbar {
+            background-color: var(--sptrans-blue);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .btn-login {
+            background-color: var(--sptrans-accent);
+            color: var(--sptrans-dark);
+            font-weight: bold;
+            border-radius: 6px;
+        }
+
+        /* Carrossel customizado */
+        .carousel {
+            margin-bottom: 40px;
+            border-bottom: 4px solid var(--sptrans-accent);
+        }
+
+        .carousel-item {
+            height: 350px;
+            background-color: #e9ecef;
+        }
+
+        .carousel-caption {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            bottom: 20%;
+        }
+
+        /* Seção de Título */
+        .section-header {
+            text-align: center;
+            margin: 40px 0;
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: var(--sptrans-blue);
+        }
+
+        /* Cards Evoluídos (Baseado no seu desenho) */
+        .card-bilhete {
+            background: white;
+            border: 2px solid #eee;
+            border-radius: 16px;
+            padding: 25px;
+            height: 100%;
+            transition: all 0.3s ease;
+            position: relative; /* Para o link expandido */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .card-bilhete:hover {
+            border-color: var(--sptrans-blue);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-img-container {
+            width: 100%;
+            height: 150px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+
+        .card-img-container img {
+            max-width: 90%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--sptrans-blue);
+        }
+
+        .card-text {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        /* Botão Acessar (Affordance total) */
+        .btn-acessar {
+            background-color: var(--sptrans-blue);
+            color: white;
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s;
+            display: inline-block;
+            border: 2px solid transparent;
+        }
+
+        /* O truque do link expandido para acessibilidade e mobile */
+        .card-main-link::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 1;
+        }
+
+        .card-bilhete:hover .btn-acessar {
+            background-color: var(--sptrans-dark);
+            border-color: var(--sptrans-accent);
+        }
+
+        /* Footer */
+        footer {
+            background: #eee;
+            padding: 40px 0;
+            margin-top: 60px;
+            border-top: 1px solid #ddd;
+        }
+
+        /* Ajustes Mobile */
+        @media (max-width: 768px) {
+            .carousel-item { height: 250px; }
+            .section-header { font-size: 1.2rem; padding: 0 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://via.placeholder.com/150x45/0055A4/FFFFFF?text=SPTrans" alt="Logo SPTrans">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navPrincipal" aria-label="Abrir menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navPrincipal">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#">Bilhetes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Dúvidas</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-login px-4" href="#">LOGIN</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section id="bannerPrincipal" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="d-flex align-items-center justify-content-center h-100 bg-secondary text-white">
+                    <div class="text-center">
+                        <h2>Bilhete Único Mamãe Tarifa Zero</h2>
+                        <p>Saiba como solicitar o benefício para transporte em creches.</p>
+                        <a href="#" class="btn btn-warning fw-bold">SAIBA MAIS</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="d-flex align-items-center justify-content-center h-100 bg-primary text-white">
+                    <div class="text-center">
+                        <h2>Estudante: Faça sua Renovação 2026</h2>
+                        <p>Não deixe para a última hora e garanta sua meia-tarifa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#bannerPrincipal" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#bannerPrincipal" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Próximo</span>
+        </button>
+    </section>
+
+    <div class="container">
+        <h1 class="section-header">Conheça todos os tipos de bilhetes disponíveis</h1>
+
+        <div class="row g-4">
+            <article class="col-md-4">
+                <div class="card-bilhete">
+                    <h2 class="card-title">Bilhete Único Mamãe Tarifa Zero</h2>
+                    <div class="card-img-container" aria-hidden="true">
+                        <img src="https://via.placeholder.com/200x120/FF6600/FFFFFF?text=Cartao+Mamae" alt="">
+                    </div>
+                    <p class="card-text">Gratuidade para pais e responsáveis levarem crianças às creches públicas.</p>
+                    <a href="#" class="btn-acessar card-main-link" aria-label="Acessar Bilhete Único Mamãe Tarifa Zero">ACESSAR</a>
+                </div>
+            </article>
+
+            <article class="col-md-4">
+                <div class="card-bilhete">
+                    <h2 class="card-title">Bilhete Único Comum</h2>
+                    <div class="card-img-container" aria-hidden="true">
+                        <img src="https://via.placeholder.com/200x120/0055A4/FFFFFF?text=Cartao+Comum" alt="">
+                    </div>
+                    <p class="card-text">Para qualquer pessoa a partir de 6 anos. Uso em ônibus, metrô e trens.</p>
+                    <a href="#" class="btn-acessar card-main-link" aria-label="Acessar Bilhete Único Comum">ACESSAR</a>
+                </div>
+            </article>
+
+            <article class="col-md-4">
+                <div class="card-bilhete">
+                    <h2 class="card-title">Bilhete Único Estudante</h2>
+                    <div class="card-img-container" aria-hidden="true">
+                        <img src="https://via.placeholder.com/200x120/28a745/FFFFFF?text=Cartao+Estudante" alt="">
+                    </div>
+                    <p class="card-text">Meia-tarifa ou gratuidade para estudantes com matrícula ativa.</p>
+                    <a href="#" class="btn-acessar card-main-link" aria-label="Acessar Bilhete Único Estudante">ACESSAR</a>
+                </div>
+            </article>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container text-center">
+        <p class="mb-2">© 2026 SPTrans - São Paulo Transporte</p>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="#" class="text-muted text-decoration-none">Privacidade</a>
+            <a href="#" class="text-muted text-decoration-none">Acessibilidade</a>
+            <a href="#" class="text-muted text-decoration-none">Contato</a>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

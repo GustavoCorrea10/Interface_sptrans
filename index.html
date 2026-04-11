@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilhete Único SPTrans | Identidade São Paulo</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="icon" type="image/png" href="https://vectorseek.com/wp-content/uploads/2023/10/Bilhete-Unico-Logo-Vector.svg-.png">
+
+    <style>
+        /* CORES UTILIZADAS (Inspiradas na Bandeira de SP):
+           - Vermelho (#D32F2F): Cor de ação principal, contraste validado.
+           - Preto (#1A1A1A): Elementos estruturais e textos fortes.
+           - Branco (#FFFFFF): Fundo principal para clareza visual.
+           - Cinza Neutro (#F5F5F5): Diferenciação de seções.
+        */
+        :root {
+            --sp-red: #D32F2F;
+            --sp-red-dark: #B71C1C;
+            --sp-black: #1A1A1A;
+            --sp-white: #FFFFFF;
+            --sp-gray-light: #F8F9FA;
+            --sp-gray-medium: #E0E0E0;
+            --text-main: #2D2D2D;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: var(--sp-white);
+            line-height: 1.6;
+        }
+
+        /* --- ACESSIBILIDADE: FOCO --- */
+        :focus-visible {
+            outline: 3px solid var(--sp-red);
+            outline-offset: 4px;
+        }
+
+        /* --- HEADER (LISTRAS DA BANDEIRA) --- */
+        .navbar {
+            background-color: var(--sp-black);
+            border-bottom: 4px solid var(--sp-red);
+            padding: 1rem 0;
+        }
+
+        .nav-link {
+            color: var(--sp-white) !important;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--sp-red) !important;
+        }
+
+        .btn-login {
+            background-color: var(--sp-red);
+            color: white !important;
+            font-weight: 700;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .btn-login:hover {
+            background-color: var(--sp-red-dark);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background-color: var(--sp-gray-light);
+            padding: 80px 0;
+            border-bottom: 1px solid var(--sp-gray-medium);
+        }
+
+        .hero h1 {
+            font-weight: 800;
+            color: var(--sp-black);
+            font-size: 3rem;
+        }
+
+        .hero span.highlight {
+            color: var(--sp-red);
+        }
+
+        /* --- CARDS DE SERVIÇO --- */
+        .card-sp {
+            background: white;
+            border: 1px solid var(--sp-gray-medium);
+            border-radius: 0; /* Estilo mais sóbrio e moderno */
+            padding: 30px;
+            height: 100%;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-sp:hover {
+            border-color: var(--sp-red);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Detalhe visual lateral inspirado na bandeira */
+        .card-sp::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 0;
+            width: 4px;
+            background-color: var(--sp-red);
+            transition: height 0.3s;
+        }
+
+        .card-sp:hover::before {
+            height: 100%;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--sp-black);
+            margin-bottom: 20px;
+        }
+
+        .btn-acessar {
+            margin-top: auto;
+            background-color: var(--sp-black);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-weight: 700;
+            text-align: center;
+            transition: all 0.2s;
+            border: 2px solid var(--sp-black);
+        }
+
+        .card-sp:hover .btn-acessar {
+            background-color: var(--sp-red);
+            border-color: var(--sp-red);
+        }
+
+        /* Expande o clique para o card inteiro (UX) */
+        .stretched-link::after {
+            content: "";
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            z-index: 1;
+        }
+
+        /* --- FOOTER & ICONE SÃO PAULO --- */
+        footer {
+            background-color: var(--sp-black);
+            color: var(--sp-white);
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            margin-top: 40px;
+            padding-top: 20px;
+        }
+
+        /* IMPLEMENTAÇÃO DO RODAPÉ COM IMAGEM CLICÁVEL */
+        .sp-state-link {
+            display: inline-block;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            text-decoration: none;
+        }
+
+        .sp-state-link:hover {
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 8px var(--sp-red));
+        }
+
+        .sp-state-svg {
+            width: 80px;
+            height: auto;
+            fill: var(--sp-white);
+            transition: fill 0.3s;
+        }
+
+        .sp-state-link:hover .sp-state-svg {
+            fill: var(--sp-red);
+        }
+        .bordaDuvidas {
+            border: 2px solid var(--sp-red);
+            border-radius: 50%;
+            padding: 4px;
+        }
+
+        /* --- RESPONSIVIDADE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .card-sp { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Navegação Principal">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <img src="https://vectorseek.com/wp-content/uploads/2023/10/Bilhete-Unico-Logo-Vector.svg-.png" style="width: 100px;" alt="Logo SPTrans" class="me-2">
+                </a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navSP" aria-controls="navSP" aria-expanded="false" aria-label="Abrir menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navSP">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item"><a class="nav-link" href="#bilhetes">Bilhetes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://www.sptrans.com.br/fale-conosco/" target="_blank">Ajuda</a></li>
+                        <li class="nav-item ms-lg-4">
+                            <a class="btn btn-login" href="https://atendimento.sptrans.com.br/login" target="_blank" role="button">ÁREA DO USUÁRIO</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="hero">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <h1>Transporte que move <span class="highlight">São Paulo</span>.</h1>
+                        <p class="lead mb-4">Gerencie seu Bilhete Único com a segurança e agilidade que você merece. Recargas, novos cartões e consultas em um só lugar.</p>
+                        <div class="d-flex gap-3">
+                            <!--
+                                Responsivo: colunas em telas pequenas, linha em médias/grandes
+                                gap-3 para espaçamento
+                            -->
+                            <div class="d-flex flex-column flex-md-row gap-3 w-100">
+                                <a href="https://atendimento.sptrans.com.br/login" target="_blank" class="btn btn-dark btn-lg px-4 fw-bold flex-fill text-center">RECARREGAR</a>
+                                <a href="https://sptrans.documentodoestudante.com.br/" target="_blank" class="btn btn-outline-danger btn-lg px-4 fw-bold flex-fill text-center">ESTUDANTE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container my-5 py-4">
+            <h2 id="bilhetes" class="mb-4 fw-bold text-uppercase border-bottom pb-2" style="letter-spacing: 2px;">Cartões Bilhete Único</h2>
+            <!-- Campo de busca acessível -->
+            <form class="mb-4" id="form-busca-cartao" role="search" autocomplete="off" onsubmit="return false;">
+                <label for="busca-cartao" class="form-label visually-hidden">Buscar tipo de cartão</label>
+                <div class="input-group input-group-lg search-bar-bilhete">
+                    <span class="input-group-text" id="icon-busca" aria-hidden="true">
+                        <i class="bi bi-search"></i>
+                    </span>
+                    <input type="search" class="form-control" id="busca-cartao" placeholder="Buscar tipo de cartão (ex: idoso, estudante, comum...)" aria-label="Buscar tipo de cartão" aria-describedby="icon-busca" />
+                </div>
+                <div id="busca-resultado-info" class="mt-2" aria-live="polite" aria-atomic="true"></div>
+            </form>
+            <!-- Fim campo de busca -->
+            <div class="row g-4" id="cards-bilhete-unico">
+                <!-- 1. Mamãe Tarifa Zero -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="card-sp card-clickable" tabindex="0" role="button" aria-label="Saiba mais sobre o Bilhete Único Mamãe Tarifa Zero">
+                        <h3 class="h5 fw-bold">Mamãe Tarifa Zero</h3>
+                        <img src="https://bilheteunico.sptrans.com.br/images-25/mametarifazero_home_2025.jpg" alt="Bilhete Único Mamãe Tarifa Zero" class="card-img-bilhete mb-3">
+                        <p class="mb-2"><strong>Público:</strong> Gestantes cadastradas no pré-natal SUS.<br><strong>Benefício:</strong> Viagens gratuitas durante a gestação.</p>
+                        <a href="#" class="btn-acessar stretched-link" aria-label="Acessar informações do Bilhete Mamãe Tarifa Zero">SAIBA MAIS</a>
+                    </div>
+                </article>
+                <!-- 2. Comum -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="card-sp card-clickable" tabindex="0" role="button" aria-label="Saiba mais sobre o Bilhete Único Comum">
+                        <h3 class="h5 fw-bold">Bilhete Único Comum</h3>
+                        <img src="https://bilheteunico.sptrans.com.br/images-23/cartoes/frente/frente-122023/comum.jpg" alt="Bilhete Único Comum" class="card-img-bilhete mb-3">
+                        <p class="mb-2"><strong>Público:</strong> Todos os cidadãos.<br><strong>Benefício:</strong> Integração ônibus, Metrô e CPTM.</p>
+                        <a href="#" class="btn-acessar stretched-link" aria-label="Acessar informações do Bilhete Único Comum">SAIBA MAIS</a>
+                    </div>
+                </article>
+                <!-- 3. Estudante -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="card-sp card-clickable" tabindex="0" role="button" aria-label="Saiba mais sobre o Bilhete Único Estudante">
+                        <h3 class="h5 fw-bold">Bilhete Único Estudante</h3>
+                        <img src="https://bilheteunico.sptrans.com.br/images-25/estudante_2026.jpg" alt="Bilhete Único Estudante" class="card-img-bilhete mb-3">
+                        <p class="mb-2"><strong>Público:</strong> Alunos de escolas e universidades.<br><strong>Benefício:</strong> Meia-tarifa ou gratuidade.</p>
+                        <a href="#" class="btn-acessar stretched-link" aria-label="Acessar informações do Bilhete Único Estudante">SAIBA MAIS</a>
+                    </div>
+                </article>
+                <!-- 4. Professor -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="card-sp card-clickable" tabindex="0" role="button" aria-label="Saiba mais sobre o Bilhete do Professor">
+                        <h3 class="h5 fw-bold">Bilhete do Professor</h3>
+                        <img src="https://bilheteunico.sptrans.com.br/images-23/cartoes/frente/frente-122023/professor.jpg" alt="Bilhete do Professor" class="card-img-bilhete mb-3">
+                        <p class="mb-2"><strong>Público:</strong> Professores da rede pública.<br><strong>Benefício:</strong> Viagens gratuitas para o trabalho.</p>
+                        <a href="#" class="btn-acessar stretched-link" aria-label="Acessar informações do Bilhete do Professor">SAIBA MAIS</a>
+                    </div>
+                </article>
+                <!-- 5. Pessoa com Deficiência -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="card-sp card-clickable" tabindex="0" role="button" aria-label="Saiba mais sobre o Bilhete Único Pessoa com Deficiência">
+                        <h3 class="h5 fw-bold">Pessoa com Deficiência</h3>
+                        <img src="https://bilheteunico.sptrans.com.br/images-23/cartoes/frente/frente-122023/professor.jpg" alt="Bilhete Único Pessoa com Deficiência" class="card-img-bilhete mb-3">
+                        <p class="mb-2"><strong>Público:</strong> Pessoas com deficiência.<br><strong>Benefício:</strong> Gratuidade no transporte público.</p>
+                        <a href="#" class="btn-acessar stretched-link" aria-label="Acessar informações do Bilhete Único Pessoa com Deficiência">SAIBA MAIS</a>
+                    </div>
+                </article>
+                <!-- 6. Gratuidade (60 a 64 anos) -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="card-sp card-clickable" tabindex="0" role="button" aria-label="Saiba mais sobre o Bilhete Gratuidade 60 a 64 anos">
+                        <h3 class="h5 fw-bold">Gratuidade 60 a 64 anos</h3>
+                        <img src="https://bilheteunico.sptrans.com.br/images-23/cartoes/frente/frente-122023/60-64.jpg" alt="Bilhete Gratuidade 60 a 64 anos" class="card-img-bilhete mb-3">
+                        <p class="mb-2"><strong>Público:</strong> Pessoas de 60 a 64 anos.<br><strong>Benefício:</strong> Viagens gratuitas.</p>
+                        <a href="#" class="btn-acessar stretched-link" aria-label="Acessar informações do Bilhete Gratuidade 60 a 64 anos">SAIBA MAIS</a>
+                    </div>
+                </article>
+                <!-- 7. Gratuidade (65+) -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="card-sp card-clickable" tabindex="0" role="button" aria-label="Saiba mais sobre o Bilhete Gratuidade 65+">
+                        <h3 class="h5 fw-bold">Gratuidade 65+</h3>
+                        <img src="https://bilheteunico.sptrans.com.br/images-24/cartoes/frente/pessoa-idosa.jpg" alt="Bilhete Gratuidade 65+" class="card-img-bilhete mb-3">
+                        <p class="mb-2"><strong>Público:</strong> Pessoas com 65 anos ou mais.<br><strong>Benefício:</strong> Viagens gratuitas.</p>
+                        <a href="#" class="btn-acessar stretched-link" aria-label="Acessar informações do Bilhete Gratuidade 65+">SAIBA MAIS</a>
+                    </div>
+                </article>
+                <!-- 8. Mãe Paulistana -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="card-sp card-clickable" tabindex="0" role="button" aria-label="Saiba mais sobre o Bilhete Único Mãe Paulistana">
+                        <h3 class="h5 fw-bold">Mãe Paulistana</h3>
+                        <img src="https://bilheteunico.sptrans.com.br/images-23/cartoes/frente/mae_paulistana.jpg" alt="Bilhete Único Mãe Paulistana" class="card-img-bilhete mb-3">
+                        <p class="mb-2"><strong>Público:</strong> Gestantes do programa Mãe Paulistana.<br><strong>Benefício:</strong> Transporte gratuito para consultas e exames.</p>
+                        <a href="#" class="btn-acessar stretched-link" aria-label="Acessar informações do Bilhete Único Mãe Paulistana">SAIBA MAIS</a>
+                    </div>
+                </article>
+                <!-- 9. Pessoa Obesa -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="card-sp card-clickable" tabindex="0" role="button" aria-label="Saiba mais sobre o Bilhete Único Pessoa Obesa">
+                        <h3 class="h5 fw-bold">Pessoa Obesa</h3>
+                        <img src="https://bilheteunico.sptrans.com.br/images-23/cartoes/frente/mae_paulistana.jpg" alt="Bilhete Único Pessoa Obesa" class="card-img-bilhete mb-3">
+                        <p class="mb-2"><strong>Público:</strong> Pessoas com obesidade.<br><strong>Benefício:</strong> Acesso facilitado ao transporte.</p>
+                        <a href="#" class="btn-acessar stretched-link" aria-label="Acessar informações do Bilhete Único Pessoa Obesa">SAIBA MAIS</a>
+                    </div>
+                </article>
+                <!-- 10. Gestante -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="card-sp card-clickable"
+                         tabindex="0"
+                         role="button"
+                         aria-label="Saiba mais sobre o Bilhete Único Gestante"
+                         data-keywords="gestante gravidez mae prenatal gravida">
+                        <h3 class="h5 fw-bold">Bilhete Único Gestante</h3>
+                        <img src="https://bilheteunico.sptrans.com.br/images-24/cartoes/frente/gestante.jpg" alt="Bilhete Único Gestante" class="card-img-bilhete mb-3">
+                        <p class="mb-2"><strong>Público:</strong> Gestantes.<br><strong>Benefício:</strong> Transporte gratuito durante a gestação.</p>
+                        <a href="#" class="btn-acessar stretched-link" aria-label="Acessar informações do Bilhete Único Gestante">SAIBA MAIS</a>
+                    </div>
+                </article>
+                <!-- 11. Corporativo -->
+                <article class="col-12 col-md-6 col-lg-3">
+                    <div class="card-sp card-clickable" tabindex="0" role="button" aria-label="Saiba mais sobre o Bilhete Único Corporativo">
+                        <h3 class="h5 fw-bold">Bilhete Único Corporativo</h3>
+                        <img src="https://bilheteunico.sptrans.com.br/images-21/cartoes/frente/frente-122022/corporativo.jpg" alt="Bilhete Único Corporativo" class="card-img-bilhete mb-3">
+                        <p class="mb-2"><strong>Público:</strong> Empresas e funcionários.<br><strong>Benefício:</strong> Gestão de vale-transporte empresarial.</p>
+                        <a href="#" class="btn-acessar stretched-link" aria-label="Acessar informações do Bilhete Único Corporativo">SAIBA MAIS</a>
+                    </div>
+                </article>
+            </div>
+            <!-- Botão DÚVIDAS centralizado -->
+            <div class="d-flex justify-content-center mt-5 ">
+                <!-- Botão DÚVIDAS: call-to-action acessível e moderno -->
+                <a href="https://www.sptrans.com.br/perguntas-e-respostas/" target="_blank" class="btn-duvidas" id="btn-duvidas" aria-label="Acessar dúvidas e perguntas frequentes">
+                    <i class="bi bi-question-circle" aria-hidden="true" focusable="false"></i>
+                    <span class="visually-hidden">Acesso rápido a dúvidas frequentes e suporte</span>
+                    <span aria-hidden="true">DÚVIDAS</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <img src="https://vectorseek.com/wp-content/uploads/2023/10/Bilhete-Unico-Logo-Vector.svg-.png" style="width: 40px;" alt="Logo SPTrans" class="mb-3">
+                    <p class="small opacity-75">São Paulo Transporte S.A.<br>Rua Boa Vista, 236 - Centro, São Paulo/SP</p>
+                </div>
+                
+                <div class="col-md-4 text-center mb-4 mb-md-0">
+                    <a href="https://www.saopaulo.sp.gov.br/" class="sp-state-link" target="_blank" rel="noopener" aria-label="Visite o portal oficial do Governo do Estado de São Paulo">
+                        <img class="sp-state-svg" src="https://www.nicepng.com/png/full/198-1982059_flag-map-of-sao-paulo-bandeira-estado-de.png" style="width: 100px;" alt="">
+                        <span class="d-block mt-2 small fw-bold">GOVERNO DE SP</span>
+                    </a>
+                </div>
+
+                <div class="col-md-4 text-md-end">
+                    <h5 class="small fw-bold text-uppercase mb-3">Acessibilidade</h5>
+                    <div class="d-flex justify-content-md-end gap-3">
+                        <i class="bi bi-universal-access fs-3" title="Site Acessível"></i>
+                        <i class="bi bi-eye fs-3" title="Alto Contraste"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom text-center">
+                <p class="small mb-0 opacity-50">&copy; 2026 SPTrans. O Transporte que move São Paulo.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+<!-- Busca inteligente dos cartões -->
+<script src="busca-cartoes.js"></script>
+</body>
+</html>
