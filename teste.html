@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Estudante | Bilhete Único SPTrans</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+    />
+
+    <style>
+      :root {
+        --sp-red: #d32f2f;
+        --sp-red-dark: #b71c1c;
+        --sp-black: #1a1a1a;
+        --sp-blue-btn: #2e3192;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+      }
+
+      /* NAVBAR REPLICADA */
+      .navbar {
+        background-color: var(--sp-black);
+        border-bottom: 4px solid var(--sp-red);
+        padding: 1rem 0;
+      }
+      .navbar-brand img {
+        width: 100px;
+      }
+      .nav-link {
+        color: white !important;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .btn-login {
+        background: var(--sp-red);
+        color: white !important;
+        font-weight: 700;
+        padding: 8px 20px;
+        border-radius: 4px;
+        text-decoration: none;
+      }
+
+      /* CARDS PADRÃO */
+      .card-info {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        border: 1px solid #000;
+        height: 100%;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      }
+      .card-info h4 {
+        font-weight: 800;
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+      }
+      .card-info li {
+        margin-bottom: 10px;
+        font-size: 0.95rem;
+        color: #444;
+      }
+
+      /* PASSOS SOLICITAÇÃO */
+      .card-passo {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        border: 1px solid #000;
+        text-align: center;
+        height: 100%;
+        transition: 0.3s;
+      }
+      .card-passo span {
+        display: inline-block;
+        background: var(--sp-red);
+        color: white;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 50%;
+        font-weight: 800;
+        margin-bottom: 15px;
+      }
+
+      /* SEÇÃO DE USO (ÍCONES INDIVIDUAIS) */
+      .uso-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin: 20px 0;
+        flex-wrap: wrap;
+      }
+      .uso-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .uso-item img {
+        width: 65px;
+        height: auto;
+      }
+      .uso-item span {
+        font-weight: 800;
+        color: var(--sp-red);
+        font-size: 0.7rem;
+        margin-top: 5px;
+      }
+      .uso-item span.trilhos {
+        color: #2e3192;
+      }
+      .sinal-mais {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #666;
+      }
+      .relogio-img {
+        width: 45px !important;
+        margin-left: 10px;
+      }
+
+      /* BOTÕES AZUIS */
+      .btn-azul-sp {
+        background-color: var(--sp-blue-btn);
+        color: white;
+        text-align: center;
+        padding: 12px 5px;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 0.75rem;
+        border-radius: 4px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        transition: 0.2s;
+      }
+      .btn-azul-sp:hover {
+        background-color: #1e2163;
+        color: white;
+      }
+
+      /* FOOTER */
+      footer {
+        background: var(--sp-black);
+        color: white;
+        padding: 60px 0 30px;
+        margin-top: 60px;
+      }
+      .sp-state-svg {
+        width: 100px;
+      }
+      .footer-bottom {
+        border-top: 1px solid #333;
+        margin-top: 40px;
+        padding-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+          <a class="navbar-brand" href="#"
+            ><img
+              src="https://vectorseek.com/wp-content/uploads/2023/10/Bilhete-Unico-Logo-Vector.svg-.png"
+          /></a>
+          <div class="ms-auto d-flex align-items-center">
+            <a class="nav-link me-3" href="#">Bilhetes</a>
+            <a class="nav-link me-3" href="#">Ajuda</a>
+            <a class="btn-login" href="#">ÁREA DO USUÁRIO</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container py-5">
+      <section class="row align-items-center mb-5">
+        <div class="col-lg-6">
+          <h1 style="font-weight: 800; color: var(--sp-red); font-size: 2.5rem">
+            Bilhete Único Estudante 2026
+          </h1>
+          <p class="text-muted fs-5">
+            Garanta sua meia tarifa ou gratuidade com facilidade.
+          </p>
+        </div>
+        <div class="col-lg-6 text-center">
+          <img
+            src="https://estudante.sptrans.com.br/images-21/cartoes/estudante_v2026.png"
+            style="max-width: 400px; transform: rotate(-8deg)"
+            alt="Cartão Estudante"
+          />
+        </div>
+      </section>
+
+      <section class="row g-4 mb-5">
+        <div class="col-md-6">
+          <div class="card-info">
+            <h4>Público</h4>
+            <ul class="small">
+              <li>Estudantes de Fundamental, Médio, Técnico e Superior.</li>
+              <li>Redes Públicas e Privadas reconhecidas.</li>
+              <li>Distância casa-escola superior a 1km.</li>
+              <li>Residentes de SP, RMSP, Jundiaí e região.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-info">
+            <h4>Informações Importantes</h4>
+            <p class="small">
+              <strong>Taxa Anual:</strong> 7 tarifas vigentes.
+            </p>
+            <p class="small">
+              <strong>Revalidação:</strong> Cartões de 2022+ não precisam de
+              nova via física.
+            </p>
+            <p class="small">
+              <strong>Escola:</strong> Verifique se a secretaria já enviou seus
+              dados.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <h3 class="fw-bold mb-4">Como solicitar o benefício</h3>
+      <section class="row g-3 mb-5">
+        <div class="col-lg-3 col-md-6">
+          <div class="card-passo">
+            <span>1</span>
+            <h5>Avisar Escola</h5>
+            <p class="small">Peça o envio da matrícula.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="card-passo">
+            <span>2</span>
+            <h5>Aguardar</h5>
+            <p class="small">O sistema atualiza em 3 dias.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="card-passo">
+            <span>3</span>
+            <h5>Site/App</h5>
+            <p class="small">Solicite o pedido online.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="card-passo">
+            <span>4</span>
+            <h5>Pagar</h5>
+            <p class="small">Pague a taxa anual.</p>
+          </div>
+        </div>
+      </section>
+
+      <h3 class="fw-bold mb-4">Possibilidades de Uso</h3>
+      <section class="card-info mb-5">
+        <div class="row">
+          <div class="col-md-6 border-end text-center">
+            <p class="fw-bold text-danger mb-3">ATÉ 4 EMBARQUES EM ÔNIBUS</p>
+            <div class="uso-container">
+
+              <div class="uso-item">
+                
+
+              <div class="uso-item">
+                <img
+                  src="https://estudante.sptrans.com.br/images-21/icone_onibus.png"
+                /><span>ÔNIBUS</span>
+              </div> 
+            </div>
+            <p class="small text-muted">
+              Período de 2 horas pagando 1 tarifa estudante.
+            </p>
+          </div>
+
+
+
+
+          <div class="col-md-6 text-center">
+            <p class="fw-bold text-primary mb-3">INTEGRAÇÃO ÔNIBUS + TRILHOS</p>
+            <div class="uso-container">
+              
+
+              <div class="sinal-mais">+</div>
+              <div class="uso-item">
+                <img
+                  src="https://estudante.sptrans.com.br/images-21/icone_onibus_trem.png"
+                /><span class="trilhos">METRÔ/TREM</span>
+              </div>
+            </div>
+            <p class="small text-muted">
+              1 embarque em trilhos + 3 ônibus em 2 horas.
+            </p>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+      
+      <section class="row g-2 mb-5">
+        <div class="col-md-4">
+          <a href="#" class="btn-azul-sp">Meia Tarifa ou Gratuidade?</a>
+        </div>
+        <div class="col-md-4">
+          <a href="#" class="btn-azul-sp">Site de Atendimento</a>
+        </div>
+        <div class="col-md-4">
+          <a href="#" class="btn-azul-sp">Dúvidas Frequentes</a>
+        </div>
+        <div class="col-md-4">
+          <a href="#" class="btn-azul-sp">Consulte a Matrícula</a>
+        </div>
+        <div class="col-md-4">
+          <a href="#" class="btn-azul-sp">Postos de Atendimento</a>
+        </div>
+        <div class="col-md-4">
+          <a href="#" class="btn-azul-sp">Manual Escolas</a>
+        </div>
+      </section>
+
+
+
+
+
+      <div class="text-center">
+        <a
+          href="https://sptrans.dne.com.br"
+          class="btn-login"
+          style="padding: 15px 40px; font-size: 1.1rem"
+          >SOLICITAR BENEFÍCIO AGORA</a
+        >
+      </div>
+    </main>
+
+
+
+
+
+    <footer>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-4 mb-4">
+            <img
+              src="https://vectorseek.com/wp-content/uploads/2023/10/Bilhete-Unico-Logo-Vector.svg-.png"
+              style="width: 40px"
+            />
+            <p class="small opacity-75 mt-2">São Paulo Transporte S.A.</p>
+          </div>
+          <div class="col-md-4 text-center mb-4">
+            <img
+              class="sp-state-svg"
+              src="https://www.nicepng.com/png/full/198-1982059_flag-map-of-sao-paulo-bandeira-estado-de.png"
+            /><span class="d-block mt-2 small fw-bold">GOVERNO DE SP</span>
+          </div>
+          <div class="col-md-4 text-md-end">
+            <i class="bi bi-universal-access fs-3 me-2"></i
+            ><i class="bi bi-eye fs-3"></i>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
