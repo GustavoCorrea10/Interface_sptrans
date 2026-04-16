@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Estudante | Bilhete Único SPTrans</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+    />
+
+    <style>
+      :root {
+        --sp-red: #d32f2f;
+        --sp-red-dark: #b71c1c;
+        --sp-black: #1a1a1a;
+        --sp-blue-btn: #2e3192;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+      }
+
+      .navbar {
+        background-color: var(--sp-black);
+        border-bottom: 4px solid var(--sp-red);
+        padding: 1rem 0;
+      }
+      .navbar-brand img {
+        width: 100px;
+      }
+      .nav-link {
+        color: white !important;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .btn-login {
+        background: var(--sp-red);
+        color: white !important;
+        font-weight: 700;
+        padding: 8px 20px;
+        border-radius: 4px;
+        text-decoration: none;
+      }
+
+      .card-info {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        border: 1px solid #000;
+        height: 100%;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .card-passo {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        border: 1px solid #000;
+        text-align: center;
+        height: 100%;
+      }
+
+      .card-passo span {
+        display: inline-block;
+        background: var(--sp-red);
+        color: white;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 50%;
+        font-weight: 800;
+        margin-bottom: 15px;
+      }
+
+      .uso-box {
+        text-align: center;
+        padding: 20px;
+      }
+
+      .uso-box img {
+        max-width: 260px;
+        width: 100%;
+      }
+
+      .btn-azul-sp {
+        background-color: var(--sp-blue-btn);
+        color: white;
+        text-align: center;
+        padding: 12px 5px;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 0.75rem;
+        border-radius: 4px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+
+      footer {
+        background: var(--sp-black);
+        color: white;
+        padding: 60px 0 30px;
+        margin-top: 60px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+          <a class="navbar-brand" href="./index.html">
+            <img src="https://vectorseek.com/wp-content/uploads/2023/10/Bilhete-Unico-Logo-Vector.svg-.png"/>
+          </a>
+          <div class="ms-auto d-flex align-items-center">
+            <a class="nav-link me-3" href="#">Bilhetes</a>
+            <a class="nav-link me-3" href="#">Ajuda</a>
+            <a class="btn-login" href="#">ÁREA DO USUÁRIO</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container py-5">
+
+      <!-- HERO -->
+      <section class="row align-items-center mb-5">
+        <div class="col-lg-6">
+          <h1 style="font-weight: 800; color: var(--sp-red); font-size: 2.5rem">
+            Bilhete Único Estudante 2026
+          </h1>
+          <p class="text-muted fs-5">
+            Garanta sua meia tarifa ou gratuidade com facilidade.
+          </p>
+        </div>
+        <div class="col-lg-6 text-center">
+          <img
+            src="https://estudante.sptrans.com.br/images-21/cartoes/estudante_v2026.png"
+            style="max-width: 400px; transform: rotate(-8deg)"
+          />
+        </div>
+      </section>
+
+      <!-- CARDS -->
+      <section class="row g-4 mb-5">
+        <div class="col-md-6">
+          <div class="card-info">
+            <h4>Público</h4>
+            <ul class="small">
+              <li>Estudantes de Fundamental, Médio, Técnico e Superior.</li>
+              <li>Redes Públicas e Privadas reconhecidas.</li>
+              <li>Distância casa-escola superior a 1km.</li>
+              <li>Residentes de SP e região.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card-info">
+            <h4>Informações Importantes</h4>
+            <p class="small"><strong>Taxa:</strong> 7 tarifas vigentes.</p>
+            <p class="small"><strong>Revalidação:</strong> automática.</p>
+            <p class="small"><strong>Escola:</strong> verifique envio.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PASSOS -->
+      <h3 class="fw-bold mb-4">Como solicitar</h3>
+      <section class="row g-3 mb-5">
+        <div class="col-md-3"><div class="card-passo"><span>1</span><p>Avisar escola</p></div></div>
+        <div class="col-md-3"><div class="card-passo"><span>2</span><p>Aguardar</p></div></div>
+        <div class="col-md-3"><div class="card-passo"><span>3</span><p>Solicitar</p></div></div>
+        <div class="col-md-3"><div class="card-passo"><span>4</span><p>Pagar</p></div></div>
+      </section>
+
+      <!-- USO -->
+      <h3 class="fw-bold mb-4">Possibilidades de Uso</h3>
+
+      <section class="card-info mb-5">
+        <div class="row text-center align-items-center">
+
+          <!-- ESQUERDA -->
+          <div class="col-md-6 border-end uso-box">
+            <p class="fw-bold text-danger mb-3">
+              ATÉ 4 EMBARQUES EM ÔNIBUS
+            </p>
+
+            <img src="https://estudante.sptrans.com.br/images-21/icone_onibus.png">
+
+            <p class="small text-muted mt-3">
+              Período de 2 horas pagando 1 tarifa estudante.
+            </p>
+          </div>
+
+          <!-- DIREITA -->
+          <div class="col-md-6 uso-box">
+            <p class="fw-bold text-primary mb-3">
+              INTEGRAÇÃO ÔNIBUS + TRILHOS
+            </p>
+
+            <img src="https://estudante.sptrans.com.br/images-21/icone_onibus_trem.png">
+
+            <p class="small text-muted mt-3">
+              1 embarque em trilhos + 3 ônibus em 2 horas.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- BOTÕES -->
+      <section class="row g-2 mb-5">
+        <div class="col-md-4"><a href="#" class="btn-azul-sp">Meia Tarifa</a></div>
+        <div class="col-md-4"><a href="#" class="btn-azul-sp">Atendimento</a></div>
+        <div class="col-md-4"><a href="#" class="btn-azul-sp">Dúvidas</a></div>
+      </section>
+
+      <!-- CTA -->
+      <div class="text-center">
+        <a href="#" class="btn-login" style="padding: 15px 40px;">
+          SOLICITAR BENEFÍCIO
+        </a>
+      </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container text-center">
+        <p>São Paulo Transporte S.A.</p>
+      </div>
+    </footer>
+
+  </body>
+</html>
