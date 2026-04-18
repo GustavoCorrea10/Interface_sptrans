@@ -6,10 +6,6 @@
     <title>Bilhete Único SPTrans | Identidade São Paulo</title>
 
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
       rel="stylesheet"
     />
@@ -23,355 +19,93 @@
       href="https://vectorseek.com/wp-content/uploads/2023/10/Bilhete-Unico-Logo-Vector.svg-.png"
     />
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
-    />
-
-    <style>
-      :root {
-        --sp-red: #d32f2f;
-        --sp-red-dark: #b71c1c;
-        --sp-black: #1a1a1a;
-        --sp-white: #ffffff;
-        --sp-gray-medium: #e0e0e0;
-      }
-
-      /* BODY */
-
-      body {
-        font-family: "Inter", sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-
-      /* ACESSIBILIDADE */
-
-      :focus-visible {
-        outline: 3px solid var(--sp-red);
-        outline-offset: 4px;
-      }
-
-      /* NAVBAR */
-
-      .navbar {
-        background-color: var(--sp-black);
-        border-bottom: 4px solid var(--sp-red);
-        padding: 1rem 0;
-      }
-
-      .navbar-brand img {
-        width: 100px;
-      }
-
-      .nav-link {
-        color: white !important;
-        font-weight: 600;
-        transition: 0.2s;
-      }
-
-      .nav-link:hover {
-        color: var(--sp-red) !important;
-      }
-
-      .btn-login {
-        background: var(--sp-red);
-        color: white !important;
-        font-weight: 700;
-        padding: 8px 20px;
-        border-radius: 4px;
-        transition: 0.2s;
-      }
-
-      .btn-login:hover {
-        background: var(--sp-red-dark);
-        transform: translateY(-1px);
-      }
-
-      /* ========================= */
-      /* MAMÃE TARIFA ZERO */
-      /* ========================= */
-
-      .mamae-section {
-        background: #ffffff;
-        padding: 80px 0;
-      }
-
-      .mamae-hero h1 {
-        font-weight: 800;
-        color: var(--sp-red);
-        font-size: 2.5rem;
-      }
-
-      .mamae-hero p {
-        font-size: 1.2rem;
-        opacity: 0.8;
-      }
-
-      .cartao-img {
-        max-width: 320px;
-        transform: rotate(-8deg);
-        transition: 0.3s;
-      }
-
-      .cartao-img:hover {
-        transform: rotate(-4deg) scale(1.05);
-      }
-
-      /* CARDS INFO */
-
-      .card-info {
-        background: white;
-        padding: 30px;
-        border-radius: 12px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        height: 100%;
-        border: solid 1px #000000;
-      }
-
-      .card-info h4 {
-        font-weight: 700;
-        margin-bottom: 15px;
-      }
-
-      .card-info li {
-        margin-bottom: 8px;
-      }
-
-      /* PASSOS */
-
-      .titulo-passo {
-        font-weight: 700;
-      }
-
-      .card-passo {
-        background: white;
-        padding: 25px;
-        border-radius: 12px;
-        text-align: center;
-        height: 100%;
-        transition: 0.3s;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-        border: solid 1px #000000;
-      }
-
-      .card-passo:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-      }
-
-      .card-passo span {
-        display: inline-block;
-        background: var(--sp-red);
-        color: white;
-        width: 40px;
-        height: 40px;
-        line-height: 40px;
-        border-radius: 50%;
-        font-weight: 700;
-        margin-bottom: 10px;
-      }
-
-      /* BOTÃO */
-
-      .btn-solicitar {
-        background: var(--sp-red);
-        color: white;
-        padding: 15px 40px;
-        font-weight: 700;
-        text-decoration: none;
-        border-radius: 6px;
-        display: inline-block;
-        transition: 0.3s;
-      }
-
-      .btn-solicitar:hover {
-        background: var(--sp-red-dark);
-        transform: translateY(-2px);
-      }
-
-      /* FOOTER */
-
-      footer {
-        background: var(--sp-black);
-        color: white;
-        padding: 60px 0 30px;
-        margin-top: 80px;
-      }
-
-      .footer-bottom {
-        border-top: 1px solid #333;
-        margin-top: 40px;
-        padding-top: 20px;
-      }
-
-      .sp-state-link {
-        display: inline-block;
-        text-decoration: none;
-        transition: 0.3s;
-      }
-
-      .sp-state-link:hover {
-        transform: scale(1.1);
-        filter: drop-shadow(0 0 8px var(--sp-red));
-      }
-
-      .sp-state-svg {
-        width: 80px;
-        transition: 0.3s;
-      }
-
-      footer i:hover {
-        color: var(--sp-red);
-        transform: scale(1.2);
-      }
-
-      /* RESPONSIVO */
-
-      @media (max-width: 768px) {
-        .mamae-hero {
-          text-align: center;
-        }
-
-        .cartao-img {
-          margin-top: 20px;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="css/mamae.css" />
   </head>
 
   <body>
-    <!-- NAVBAR -->
-
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
+      <nav class="navbar">
+        <div class="container nav-container">
           <a class="navbar-brand" href="./index.html">
             <img
               src="https://vectorseek.com/wp-content/uploads/2023/10/Bilhete-Unico-Logo-Vector.svg-.png"
+              alt="Logo Bilhete Único"
             />
           </a>
 
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navSP"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navSP">
-            <ul class="navbar-nav ms-auto align-items-center">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Bilhetes</a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="#">Ajuda</a>
-              </li>
-
-              <li class="nav-item ms-lg-4">
-                <a class="btn btn-login" href="#">ÁREA DO USUÁRIO</a>
-              </li>
-            </ul>
+          <div class="nav-links">
+            <a href="#">Bilhetes</a>
+            <a href="#">Ajuda</a>
+            <a class="btn-login" href="#">ÁREA DO USUÁRIO</a>
           </div>
         </div>
       </nav>
     </header>
 
-    <!-- MAMÃE TARIFA ZERO -->
-
-    <section class="mamae-section">
+    <main class="mamae-section">
       <div class="container">
-        <div class="row align-items-center mamae-hero">
-          <div class="col-lg-6">
+        <section class="mamae-hero">
+          <div class="hero-text">
             <h1>Mamãe Tarifa Zero</h1>
             <p>Transporte gratuito para levar crianças à creche</p>
           </div>
-
-          <div class="col-lg-6 text-center">
+          <div class="hero-img">
             <img
               src="https://bilheteunico.sptrans.com.br/images-25/mametarifazero_home_2025.jpg"
               class="cartao-img"
+              alt="Cartão Mamãe Tarifa Zero"
             />
           </div>
-        </div>
+        </section>
 
-        <div class="row g-4 mt-4">
-          <div class="col-md-6">
-            <div class="card-info">
-              <h4>Quem tem direito</h4>
-
-              <ul>
-                <li>Crianças de 0 a 4 anos;</li>
-                <li>Matriculada em creche pública da cidade de São Paulo;</li>
-                <li>Inscrita no CadÚnico;</li>
-                <li>Morar a mais de 1,5 quilômetro da creche</li>
-                <li>Não usar Transporte Escolar Gratuito - TEG.</li>
-              </ul>
-            </div>
+        <section class="grid-info">
+          <div class="card-info">
+            <h4>Quem tem direito</h4>
+            <ul>
+              <li>Crianças de 0 a 4 anos;</li>
+              <li>Matriculada em creche pública da cidade de São Paulo;</li>
+              <li>Inscrita no CadÚnico;</li>
+              <li>Morar a mais de 1,5 quilômetro da creche</li>
+              <li>Não usar Transporte Escolar Gratuito - TEG.</li>
+            </ul>
           </div>
 
-          <div class="col-md-6">
-            <div class="card-info">
-              <h4>Como funciona</h4>
+          <div class="card-info">
+            <h4>Como funciona</h4>
+            <p>
+              Responsável recebe um cartão para usar gratuitamente ao levar ou
+              buscar a criança na creche.
+            </p>
+          </div>
+        </section>
 
-              <p>
-                Responsável recebe um cartão para usar gratuitamente ao levar ou
-                buscar a criança na creche.
-              </p>
+        <section class="passos-section">
+          <h3 class="titulo-secao">Como solicitar o benefício</h3>
+          <div class="grid-passos">
+            <div class="card-passo">
+              <span>1</span>
+              <h5>Verificar direito</h5>
+              <p>Consulte no site SPTrans</p>
+            </div>
+            <div class="card-passo">
+              <span>2</span>
+              <h5>Confirmar dados</h5>
+              <p>Preencha suas informações</p>
+            </div>
+            <div class="card-passo">
+              <span>3</span>
+              <h5>Receber cartão</h5>
+              <p>Cartão enviado</p>
+            </div>
+            <div class="card-passo">
+              <span>4</span>
+              <h5>Usar benefício</h5>
+              <p>Utilize no transporte</p>
             </div>
           </div>
-        </div>
+        </section>
 
-        <div class="mt-5">
-          <h3 class="titulo-passo">Como solicitar o benefício</h3>
-
-          <div class="row g-4 mt-2">
-            <div class="col-lg-3 col-md-6">
-              <div class="card-passo">
-                <span>1</span>
-                <h5>Verificar direito</h5>
-                <p>Consulte no site SPTrans</p>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-              <div class="card-passo">
-                <span>2</span>
-                <h5>Confirmar dados</h5>
-                <p>Preencha suas informações</p>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-              <div class="card-passo">
-                <span>3</span>
-                <h5>Receber cartão</h5>
-                <p>Cartão enviado</p>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-              <div class="card-passo">
-                <span>4</span>
-                <h5>Usar benefício</h5>
-                <p>Utilize no transporte</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="text-center mt-5">
+        <div class="cta-container">
           <a
             href="https://atendimento.sptrans.com.br/lp/mamae-tarifa-zero"
             class="btn-solicitar"
@@ -380,55 +114,45 @@
           </a>
         </div>
       </div>
-    </section>
-
-    <!-- FOOTER -->
+    </main>
 
     <footer>
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-4 mb-4">
-            <img
-              src="https://vectorseek.com/wp-content/uploads/2023/10/Bilhete-Unico-Logo-Vector.svg-.png"
-              style="width: 40px"
-            />
-
-            <p class="small opacity-75">
-              São Paulo Transporte S.A.<br />
-              Rua Boa Vista, 236 - Centro, São Paulo/SP
-            </p>
-          </div>
-
-          <div class="col-md-4 text-center mb-4">
-            <a href="#" class="sp-state-link">
-              <img
-                class="sp-state-svg"
-                src="https://www.nicepng.com/png/full/198-1982059_flag-map-of-sao-paulo-bandeira-estado-de.png"
-                style="width: 100px"
-              />
-
-              <span class="d-block mt-2 small fw-bold"> GOVERNO DE SP </span>
-            </a>
-          </div>
-
-          <div class="col-md-4 text-md-end">
-            <h5 class="small fw-bold text-uppercase mb-3">Acessibilidade</h5>
-
-            <div class="d-flex justify-content-md-end gap-3">
-              <i class="bi bi-universal-access fs-3"></i>
-              <i class="bi bi-eye fs-3"></i>
-            </div>
-          </div>
-        </div>
-
-        <div class="footer-bottom text-center">
-          <p class="small mb-0 opacity-50">
-            © 2026 SPTrans. O Transporte que move São Paulo.
+      <div class="container footer-grid">
+        <div class="footer-col">
+          <img
+            src="https://vectorseek.com/wp-content/uploads/2023/10/Bilhete-Unico-Logo-Vector.svg-.png"
+            class="footer-logo"
+            alt="Logo"
+          />
+          <p class="small">
+            São Paulo Transporte S.A.<br />
+            Rua Boa Vista, 236 - Centro, São Paulo/SP
           </p>
         </div>
+
+        <div class="footer-col center">
+          <a href="#" class="sp-state-link">
+            <img
+              class="sp-state-svg"
+              src="https://www.nicepng.com/png/full/198-1982059_flag-map-of-sao-paulo-bandeira-estado-de.png"
+              alt="Mapa SP"
+            />
+            <span class="gov-text">GOVERNO DE SP</span>
+          </a>
+        </div>
+
+        <div class="footer-col right">
+          <h5 class="footer-title">Acessibilidade</h5>
+          <div class="footer-icons">
+            <i class="bi bi-universal-access"></i>
+            <i class="bi bi-eye"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 SPTrans. O Transporte que move São Paulo.</p>
       </div>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

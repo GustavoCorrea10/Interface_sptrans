@@ -4,11 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Estudante | Bilhete Único SPTrans</title>
-
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="css/estudante.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
       rel="stylesheet"
@@ -17,236 +13,334 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
     />
-
-    <style>
-      :root {
-        --sp-red: #d32f2f;
-        --sp-red-dark: #b71c1c;
-        --sp-black: #1a1a1a;
-        --sp-blue-btn: #2e3192;
-      }
-
-      body {
-        font-family: "Inter", sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #fff;
-      }
-
-      .navbar {
-        background-color: var(--sp-black);
-        border-bottom: 4px solid var(--sp-red);
-        padding: 1rem 0;
-      }
-      .navbar-brand img {
-        width: 100px;
-      }
-      .nav-link {
-        color: white !important;
-        font-weight: 600;
-        text-decoration: none;
-      }
-      .btn-login {
-        background: var(--sp-red);
-        color: white !important;
-        font-weight: 700;
-        padding: 8px 20px;
-        border-radius: 4px;
-        text-decoration: none;
-      }
-
-      .card-info {
-        background: white;
-        padding: 30px;
-        border-radius: 12px;
-        border: 1px solid #000;
-        height: 100%;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-      }
-
-      .card-passo {
-        background: white;
-        padding: 30px;
-        border-radius: 12px;
-        border: 1px solid #000;
-        text-align: center;
-        height: 100%;
-      }
-
-      .card-passo span {
-        display: inline-block;
-        background: var(--sp-red);
-        color: white;
-        width: 40px;
-        height: 40px;
-        line-height: 40px;
-        border-radius: 50%;
-        font-weight: 800;
-        margin-bottom: 15px;
-      }
-
-      .uso-box {
-        text-align: center;
-        padding: 20px;
-      }
-
-      .uso-box img {
-        max-width: 260px;
-        width: 100%;
-      }
-
-      .btn-azul-sp {
-        background-color: var(--sp-blue-btn);
-        color: white;
-        text-align: center;
-        padding: 12px 5px;
-        text-transform: uppercase;
-        font-weight: 700;
-        font-size: 0.75rem;
-        border-radius: 4px;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-      }
-
-      footer {
-        background: var(--sp-black);
-        color: white;
-        padding: 60px 0 30px;
-        margin-top: 60px;
-      }
-    </style>
   </head>
 
   <body>
-    <!-- NAVBAR -->
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark">
+      <nav class="navbar">
         <div class="container">
           <a class="navbar-brand" href="./index.html">
-            <img src="https://vectorseek.com/wp-content/uploads/2023/10/Bilhete-Unico-Logo-Vector.svg-.png"/>
+            <img
+              src="https://vectorseek.com/wp-content/uploads/2023/10/Bilhete-Unico-Logo-Vector.svg-.png"
+              alt="Logo Bilhete Único"
+            />
           </a>
-          <div class="ms-auto d-flex align-items-center">
-            <a class="nav-link me-3" href="#">Bilhetes</a>
-            <a class="nav-link me-3" href="#">Ajuda</a>
+
+          <!-- BOTÃO HAMBÚRGUER (aparece só no mobile) -->
+          <button
+            class="navbar-toggler"
+            id="navbar-toggler"
+            aria-expanded="false"
+            aria-label="Abrir menu"
+          >
+            &#9776;
+          </button>
+
+          <div class="nav-links" id="navLinks">
+            <a href="#">Bilhetes</a>
+            <a href="#">Ajuda</a>
             <a class="btn-login" href="#">ÁREA DO USUÁRIO</a>
           </div>
         </div>
       </nav>
     </header>
 
-    <main class="container py-5">
-
-      <!-- HERO -->
-      <section class="row align-items-center mb-5">
-        <div class="col-lg-6">
-          <h1 style="font-weight: 800; color: var(--sp-red); font-size: 2.5rem">
-            Bilhete Único Estudante 2026
-          </h1>
-          <p class="text-muted fs-5">
-            Garanta sua meia tarifa ou gratuidade com facilidade.
-          </p>
+    <main class="container">
+      <section class="hero">
+        <div class="hero-text">
+          <h1>Bilhete Único Estudante 2026</h1>
+          <p>Garanta sua meia tarifa ou gratuidade com facilidade.</p>
         </div>
-        <div class="col-lg-6 text-center">
+        <div class="hero-img">
           <img
             src="https://estudante.sptrans.com.br/images-21/cartoes/estudante_v2026.png"
-            style="max-width: 400px; transform: rotate(-8deg)"
+            alt="Cartão Estudante"
           />
         </div>
       </section>
 
-      <!-- CARDS -->
-      <section class="row g-4 mb-5">
-        <div class="col-md-6">
-          <div class="card-info">
-            <h4>Público</h4>
-            <ul class="small">
-              <li>Estudantes de Fundamental, Médio, Técnico e Superior.</li>
-              <li>Redes Públicas e Privadas reconhecidas.</li>
-              <li>Distância casa-escola superior a 1km.</li>
-              <li>Residentes de SP e região.</li>
-            </ul>
-          </div>
+      <section class="cards">
+        <div class="card-info">
+          <h4><i class="bi bi-people-fill"></i> Quem pode solicitar?</h4>
+          <ul>
+            <li>
+              Estudantes do Ensino Fundamental, Médio, Técnico ou Superior.
+            </li>
+            <li>Escolas reconhecidas (públicas ou particulares).</li>
+            <li>Distância mínima de 1 km entre residência e escola.</li>
+            <li>Residentes em SP ou Região Metropolitana.</li>
+          </ul>
         </div>
 
-        <div class="col-md-6">
-          <div class="card-info">
-            <h4>Informações Importantes</h4>
-            <p class="small"><strong>Taxa:</strong> 7 tarifas vigentes.</p>
-            <p class="small"><strong>Revalidação:</strong> automática.</p>
-            <p class="small"><strong>Escola:</strong> verifique envio.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- PASSOS -->
-      <h3 class="fw-bold mb-4">Como solicitar</h3>
-      <section class="row g-3 mb-5">
-        <div class="col-md-3"><div class="card-passo"><span>1</span><p>Avisar escola</p></div></div>
-        <div class="col-md-3"><div class="card-passo"><span>2</span><p>Aguardar</p></div></div>
-        <div class="col-md-3"><div class="card-passo"><span>3</span><p>Solicitar</p></div></div>
-        <div class="col-md-3"><div class="card-passo"><span>4</span><p>Pagar</p></div></div>
-      </section>
-
-      <!-- USO -->
-      <h3 class="fw-bold mb-4">Possibilidades de Uso</h3>
-
-      <section class="card-info mb-5">
-        <div class="row text-center align-items-center">
-
-          <!-- ESQUERDA -->
-          <div class="col-md-6 border-end uso-box">
-            <p class="fw-bold text-danger mb-3">
-              ATÉ 4 EMBARQUES EM ÔNIBUS
-            </p>
-
-            <img src="https://estudante.sptrans.com.br/images-21/icone_onibus.png">
-
-            <p class="small text-muted mt-3">
-              Período de 2 horas pagando 1 tarifa estudante.
-            </p>
-          </div>
-
-          <!-- DIREITA -->
-          <div class="col-md-6 uso-box">
-            <p class="fw-bold text-primary mb-3">
-              INTEGRAÇÃO ÔNIBUS + TRILHOS
-            </p>
-
-            <img src="https://estudante.sptrans.com.br/images-21/icone_onibus_trem.png">
-
-            <p class="small text-muted mt-3">
-              1 embarque em trilhos + 3 ônibus em 2 horas.
-            </p>
-          </div>
-
+        <div class="card-info">
+          <h4><i class="bi bi-exclamation-triangle-fill"></i> Resumo Rápido</h4>
+          <p><strong>Taxa Padrão:</strong> 7 tarifas vigentes de ônibus.</p>
+          <p>
+            <strong>Revalidação:</strong> Somente para cartões emitidos após
+            2022.
+          </p>
+          <p>
+            <strong>Escola:</strong> Deve enviar seus dados antes de você
+            solicitar.
+          </p>
         </div>
       </section>
 
-      <!-- BOTÕES -->
-      <section class="row g-2 mb-5">
-        <div class="col-md-4"><a href="#" class="btn-azul-sp">Meia Tarifa</a></div>
-        <div class="col-md-4"><a href="#" class="btn-azul-sp">Atendimento</a></div>
-        <div class="col-md-4"><a href="#" class="btn-azul-sp">Dúvidas</a></div>
+      <h3 class="secao-titulo">Como solicitar</h3>
+      <section class="passos">
+        <div class="card-passo">
+          <span>1</span>
+          <h4>Avisar escola</h4>
+          <p>Informe que deseja o benefício do Estudante.</p>
+        </div>
+        <div class="card-passo">
+          <span>2</span>
+          <h4>Aguardar</h4>
+          <p>Dados ficam disponíveis no sistema em até 3 dias úteis.</p>
+        </div>
+        <div class="card-passo">
+          <span>3</span>
+          <h4>Site</h4>
+          <p>Escolha entre revalidar, novo ou segunda via.</p>
+        </div>
+        <div class="card-passo">
+          <span>4</span>
+          <h4>Taxa</h4>
+          <p>Pague a taxa para liberar o uso do cartão.</p>
+        </div>
       </section>
 
-      <!-- CTA -->
-      <div class="text-center">
-        <a href="#" class="btn-login" style="padding: 15px 40px;">
-          SOLICITAR BENEFÍCIO
-        </a>
+      <h3 class="secao-titulo">Detalhes por tipo de pedido</h3>
+      <section class="detalhes-solicitacao">
+        <details class="acordeao-item">
+          <summary>Revalidar Cartão Atual (2022 em diante)</summary>
+          <div class="acordeao-conteudo">
+            <p>
+              Se seu cartão foi emitido a partir de 2022 e está em bom estado,
+              você pode revalidá-lo.
+            </p>
+            <div class="valor-tag">Custo: 7 tarifas de ônibus</div>
+            <p>
+              <small
+                ><strong>Aviso:</strong> Cartões de 2021 ou anteriores não podem
+                ser revalidados; um novo será enviado após o pagamento.</small
+              >
+            </p>
+          </div>
+        </details>
+
+        <details class="acordeao-item">
+          <summary>
+            Solicitar Novo Cartão (Primeira Via ou Substituição)
+          </summary>
+          <div class="acordeao-conteudo">
+            <p>
+              Para quem nunca teve o cartão ou deseja substituir um antigo
+              (anterior a 2021).
+            </p>
+            <div class="valor-tag">Custo: 7 tarifas de ônibus</div>
+            <p>
+              O cartão será enviado em até 15 dias para o seu endereço
+              cadastrado.
+            </p>
+            <p>
+              <small
+                ><strong>Importante:</strong> Se houver saldo no cartão antigo,
+                ele será transferido em 72h após o desbloqueio do novo.</small
+              >
+            </p>
+          </div>
+        </details>
+
+        <details class="acordeao-item">
+          <summary>Segunda Via (Perda, Roubo ou Danificado)</summary>
+          <div class="acordeao-conteudo">
+            <p>Escolha como deseja receber sua nova via:</p>
+            <p><strong>Opção 1: Receber em casa (15 dias)</strong></p>
+            <div class="valor-tag">Custo: 7 tarifas + 3 tarifas de frete</div>
+            <p>
+              <strong>Opção 2: Retirar em Posto SPTrans (3 dias úteis)</strong>
+            </p>
+            <div class="valor-tag">Custo: 7 tarifas (Sem frete)</div>
+          </div>
+        </details>
+
+        <details class="acordeao-item">
+          <summary>Cartão com Defeito de Fabricação</summary>
+          <div class="acordeao-conteudo">
+            <p>
+              Se o cartão parou de funcionar sem danos físicos, leve-o a um
+              Posto de Atendimento para análise.
+            </p>
+            <div class="valor-tag isento">Custo: Gratuito (Isento)</div>
+            <p>
+              Sendo comprovado defeito de fabricação, a nova via é emitida sem
+              custos.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <div class="acoes-solicitacao">
+        <a href="#" class="btn-solicitar"
+          ><i class="bi bi-credit-card"></i> Solicitar ou Revalidar</a
+        >
+        <a href="#" class="btn-acompanhar"
+          ><i class="bi bi-search"></i> Acompanhar Pedido</a
+        >
       </div>
 
+      <p class="info-extra">
+        O cartão é enviado para o endereço cadastrado ou retirado em postos
+        oficiais.
+      </p>
+
+      <h3 class="secao-titulo">Possibilidades de Uso</h3>
+      <section class="uso">
+        <div class="uso-box">
+          <p class="titulo-vermelho">ATÉ 4 EMBARQUES EM ÔNIBUS</p>
+          <img
+            src="https://estudante.sptrans.com.br/images-21/icone_onibus.png"
+            alt="Ícone Ônibus"
+          />
+          <p>
+            Até 4 ônibus diferentes no período de 2 horas pagando 1 tarifa
+            estudante.
+          </p>
+        </div>
+        <div class="uso-box">
+          <p class="titulo-azul">INTEGRAÇÃO ÔNIBUS + TRILHOS</p>
+          <img
+            src="https://estudante.sptrans.com.br/images-21/icone_onibus_trem.png"
+            alt="Ícone Ônibus e Trem"
+          />
+          <p>1 embarque em metrô/trem + 3 ônibus no período de 2 horas.</p>
+        </div>
+      </section>
+
+      <section class="cards-servicos">
+        <div class="card-info">
+          <h4><i class="bi bi-cash-stack"></i> COMPRA DE CRÉDITOS</h4>
+          <hr />
+          <div class="servico-item">
+            <p>
+              <strong>Aplicativos para celular:</strong> Escolha um dos apps
+              autorizados pela SPTrans.
+            </p>
+            <a href="#" class="btn-link-acao"
+              ><i class="bi bi-phone"></i> Acesse o Site</a
+            >
+          </div>
+          <div class="servico-item">
+            <p>
+              <strong>Pontos de venda:</strong> Apresente o cartão ao atendente
+              e compre a quantidade desejada.
+            </p>
+            <a href="#" class="btn-link-acao"
+              ><i class="bi bi-geo-alt"></i> Ver Pontos</a
+            >
+          </div>
+          <div class="servico-item">
+            <p>
+              <strong>Loja Virtual:</strong> Emita e pague o boleto e recarregue
+              após 72h.
+            </p>
+            <a href="#" class="btn-link-acao"
+              ><i class="bi bi-laptop"></i> Ir para Loja</a
+            >
+          </div>
+        </div>
+
+        <div class="card-info">
+          <h4><i class="bi bi-bank"></i> INSTITUIÇÕES DE ENSINO</h4>
+          <hr />
+          <p>
+            <small><strong>Para uso exclusivo das escolas:</strong></small>
+          </p>
+          <div class="lista-botoes-escola">
+            <a href="#" class="btn-link-escola"
+              ><i class="bi bi-file-earmark-text"></i> Manual de Orientações</a
+            >
+            <a href="#" class="btn-link-escola"
+              ><i class="bi bi-person-plus"></i> Cadastro de Alunos</a
+            >
+            <a href="#" class="btn-link-escola"
+              ><i class="bi bi-pencil-square"></i> Formulário para Cadastro</a
+            >
+            <a href="#" class="btn-link-escola"
+              ><i class="bi bi-graph-up"></i> Alteração de Cotas</a
+            >
+            <a href="#" class="btn-link-escola"
+              ><i class="bi bi-send"></i> Envio de matrículas 2026</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="botoes-atalho-grade">
+        <a href="#" class="btn-grade-azul">MEIA TARIFA OU GRATUIDADE?</a>
+        <a href="#" class="btn-grade-azul">SITE DE ATENDIMENTO</a>
+        <a href="#" class="btn-grade-azul">DÚVIDAS FREQUENTES</a>
+        <a href="#" class="btn-grade-azul">CONSULTE O ENVIO DA MATRÍCULA</a>
+        <a href="#" class="btn-grade-azul">POSTOS DE ATENDIMENTO</a>
+        <a href="#" class="btn-grade-azul"
+          >MANUAL PARA AS INSTITUIÇÕES DE ENSINO</a
+        >
+        <a href="#" class="btn-grade-azul">MANUAL PARA ENVIO DE MATRÍCULAS</a>
+        <a href="#" class="btn-grade-azul"
+          >ATENDIMENTO ÀS INSTITUIÇÕES DE ENSINO</a
+        >
+      </section>
     </main>
 
-    <!-- FOOTER -->
     <footer>
-      <div class="container text-center">
-        <p>São Paulo Transporte S.A.</p>
+      <div class="container footer-grid">
+        <div class="footer-col">
+          <img
+            src="https://vectorseek.com/wp-content/uploads/2023/10/Bilhete-Unico-Logo-Vector.svg-.png"
+            class="footer-logo"
+            alt="Logo"
+          />
+          <p class="footer-text">
+            São Paulo Transporte S.A.<br />Rua Boa Vista, 236 - Centro, SP
+          </p>
+        </div>
+        <div class="footer-col center">
+          <a
+            href="https://www.saopaulo.sp.gov.br/"
+            target="_blank"
+            class="gov-link"
+          >
+            <img
+              class="sp-state-svg"
+              src="https://www.nicepng.com/png/full/198-1982059_flag-map-of-sao-paulo-bandeira-estado-de.png"
+              alt="Mapa SP"
+            />
+            <span class="gov-text">GOVERNO DE SP</span>
+          </a>
+        </div>
+        <div class="footer-col right">
+          <h5 class="footer-title">Acessibilidade</h5>
+          <div class="footer-icons">
+            <i class="bi bi-universal-access"></i>
+            <i class="bi bi-eye"></i>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 SPTrans. O Transporte que move São Paulo.</p>
       </div>
     </footer>
 
+    <!-- JS DO HAMBÚRGUER -->
+    <script>
+      const toggler = document.getElementById("navbar-toggler");
+      const navLinks = document.getElementById("navLinks");
+
+      toggler.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("open");
+        toggler.setAttribute("aria-expanded", isOpen);
+      });
+    </script>
   </body>
 </html>
