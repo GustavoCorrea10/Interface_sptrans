@@ -1,0 +1,264 @@
+/* Reset básico e tipografia */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #b30000; /* Vermelho SPTrans */
+}
+
+/* Layout Principal em duas colunas */
+.container {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+
+.left-panel,
+.right-panel {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Centraliza o card de login verticalmente */
+.left-panel {
+  justify-content: flex-start; /* Move o conteúdo para o topo */
+  padding-top: 4vh;
+}
+
+/* Linha divisória branca no meio e alinhamento */
+.right-panel {
+  border-left: 2px solid white;
+  text-align: center;
+  color: white;
+  justify-content: flex-start; /* Move o conteúdo mais para cima */
+  padding-top: 6vh; /* Dá um pequeno espaço no topo */
+}
+
+/* --- Estilos do Card de Login (Esquerda) --- */
+.login-card {
+  background-color: white;
+  border-radius: 20px;
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.toggle-buttons {
+  background-color: #e0e0e0;
+  border-radius: 30px;
+  display: flex;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+.toggle-buttons button {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 10px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #555;
+}
+
+.toggle-buttons button.active {
+  background-color: white;
+  color: #000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Formulários */
+.form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-content input {
+  width: 100%;
+  padding: 15px;
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.forgot-password {
+  color: red;
+  font-size: 12px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.new-user {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.new-user a {
+  color: red;
+  text-decoration: none;
+}
+
+/* Classe utilitária para esconder elementos */
+.hidden {
+  display: none !important;
+}
+
+/* --- Estilos do Painel Direito --- */
+.right-panel h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.right-panel h2 {
+  font-size: 18px;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 500px;
+  max-height: 48vh;
+  object-fit: contain;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.banner-image {
+  height: 90px;
+  width: 105%;
+  max-width: 105%;
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+/* --- Rodapé --- */
+.footer {
+  background-color: white;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #333;
+}
+
+.footer a {
+  color: #333;
+  text-decoration: none;
+}
+
+.footer-logos {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.logo-padrao {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-sptrans {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* --- Estilos do Modal (Popup) --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.modal-icon-bg {
+  background-color: #fff9e6;
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px auto;
+}
+
+.modal-icon {
+  font-size: 30px;
+}
+
+.modal-content h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.modal-content p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.modal-link {
+  color: #555;
+  text-decoration: underline;
+  font-size: 14px;
+  font-weight: bold;
+}

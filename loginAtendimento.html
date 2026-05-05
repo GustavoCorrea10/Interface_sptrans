@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SPTrans - Atendimento</title>
+    <!-- Link para o CSS -->
+    <link rel="stylesheet" href="./atendimento.css" />
+  </head>
+  <body>
+    <main class="container">
+      <!-- Coluna Esquerda: Login -->
+      <section class="left-panel">
+        <div class="login-card">
+          <!-- Imagem do Logo -->
+          <img
+            src="https://atendimento.sptrans.com.br/assets/header/bilhete_unico_color.svg"
+            alt="Logo Bilhete Único"
+            class="logo"
+          />
+
+          <div class="toggle-buttons">
+            <button id="btn-login" class="active" onclick="showForm('login')">
+              Fazer Login
+            </button>
+            <button id="btn-protocolo" onclick="showForm('protocolo')">
+              Consultar Protocolo
+            </button>
+          </div>
+
+          <p class="subtitle">Acesso Público ao sistema do Bilhete Único</p>
+
+          <!-- Formulário de Login -->
+          <div id="form-login" class="form-content">
+            <input type="text" placeholder="CPF" />
+            <input type="password" placeholder="SENHA" />
+            <a href="#" class="forgot-password">Esqueceu a senha?</a>
+            <button class="btn-primary">ENTRAR</button>
+            <p class="new-user">Novo usuário? <a href="#">Clique aqui</a></p>
+          </div>
+
+          <!-- Formulário de Protocolo (Oculto por padrão) -->
+          <div id="form-protocolo" class="form-content hidden">
+            <p style="font-weight: bold; color: #333; font-size: 14px;">Digite seus dados para verificação</p>
+            <input type="text" placeholder="CPF" />
+            <input type="text" placeholder="Número do Protocolo" />
+            <button class="btn-primary">CONSULTAR</button>
+          </div>
+      </section>
+
+      <!-- Coluna Direita: Informações e Imagens -->
+      <section class="right-panel">
+        <h1>Bem-vindo(a) ao<br />Site de Atendimento da SPTrans</h1>
+        <h2>
+          Facilidade e conveniência para quem utiliza o<br />transporte público
+          de São Paulo
+        </h2>
+
+        <!-- Imagem da mulher com os cards -->
+        <img
+          src="https://atendimento.sptrans.com.br/assets/value_proposition_banner.png"
+          alt="Mulher segurando cartão e celular com cards de benefícios"
+          class="hero-image"
+        />
+
+        <!-- Imagem do card/banner inferior -->
+        <img
+          src="https://atendimento.sptrans.com.br/assets/banners/banner-estudante-desktop-login.png"
+          alt="Banner Bilhete Único de Estudante"
+          class="banner-image"
+        />
+      </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+      <div class="footer-text">
+        <p>
+          ©2026 São Paulo Transporte S/A •
+          <a href="#">Política de Privacidade</a> •
+          <a href="#">Termo de Adesão</a>
+        </p>
+      </div>
+      <div class="footer-logos">
+        <!-- Imagens dos logos do rodapé com classes específicas -->
+        <img
+          src="https://atendimento.sptrans.com.br/assets/header/bilhete_unico_color.svg"
+          alt="Logo Bilhete Único"
+          class="logo-padrao"
+        />
+        <img
+          src="https://atendimento.sptrans.com.br/assets/header/logo-vertical-cor.png"
+          alt="Logo SPTrans"
+          class="logo-sptrans"
+        />
+        <img
+          src="https://atendimento.sptrans.com.br/assets/header/logo-prefeitura-sao-paulo.png"
+          alt="Logo Prefeitura de São Paulo"
+          class="logo-padrao"
+        />
+      </div>
+    </footer>
+
+    <!-- Modal de Alerta (Popup) -->
+    <div id="protocolo-modal" class="modal-overlay hidden">
+      <div class="modal-content">
+        <div class="modal-icon-bg">
+          <span class="modal-icon">⚠️</span>
+        </div>
+        <h3>Consulta de protocolo</h3>
+        <p>Acompanhe o andamento da sua solicitação de forma rápida e fácil.</p>
+        <p>
+          Basta informar ao lado seu <strong>CPF</strong> e o
+          <strong>número do protocolo</strong> para visualizar os detalhes.
+        </p>
+
+        <button class="btn-primary" onclick="closeModal()">Entendi</button>
+        <br /><br />
+        <a href="#" class="modal-link">Saiba mais</a>
+      </div>
+    </div>
+
+    <!-- Link para o JS na pasta separada -->
+    <script src="./loginAtendimento.js"></script>
+  </body>
+</html>
