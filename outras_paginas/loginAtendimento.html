@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SPTrans - Atendimento</title>
     <!-- Link para o CSS -->
-    <link rel="stylesheet" href="./atendimento.css" />
+    <link rel="stylesheet" href="../css/atendimento.css" />
   </head>
   <body>
     <main class="container">
       <!-- Coluna Esquerda: Login -->
       <section class="left-panel">
+        <!-- Texto de boas-vindas: aparece só no mobile, acima do card -->
+        <div class="mobile-welcome">
+          <h1>Bem-vindo(a) ao<br />Site de Atendimento da SPTrans</h1>
+          <h2>Facilidade e conveniência para quem utiliza o transporte público de São Paulo</h2>
+        </div>
+
         <div class="login-card">
           <!-- Imagem do Logo -->
           <img
@@ -62,15 +68,19 @@
           alt="Mulher segurando cartão e celular com cards de benefícios"
           class="hero-image"
         />
+      </section>
+    </main>
 
-        <!-- Imagem do card/banner inferior -->
+    <!-- Banner azul centralizado abaixo do main, largura total -->
+    <div class="banner-wrapper">
+      <a href="https://www.sptrans.com.br/bilhete-unico/estudante/" target="_blank" class="banner-link">
         <img
           src="https://atendimento.sptrans.com.br/assets/banners/banner-estudante-desktop-login.png"
           alt="Banner Bilhete Único de Estudante"
           class="banner-image"
         />
-      </section>
-    </main>
+      </a>
+    </div>
 
     <!-- Rodapé -->
     <footer class="footer">
@@ -121,6 +131,6 @@
     </div>
 
     <!-- Link para o JS na pasta separada -->
-    <script src="./loginAtendimento.js"></script>
+    <script src="../loginAtendimento.js"></script>
   </body>
 </html>
