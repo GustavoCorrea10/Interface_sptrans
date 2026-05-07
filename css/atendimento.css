@@ -60,9 +60,10 @@ body {
 }
 
 .logo {
-  width: 120px;
+  display: block;
+  margin: 0 auto 24px;
+  max-width: 100px; /* ajuste se quiser maior ou menor */
   height: auto;
-  margin-bottom: 20px;
 }
 
 .toggle-buttons {

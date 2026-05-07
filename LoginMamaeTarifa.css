@@ -1,0 +1,665 @@
+/* ── VARIÁVEIS ── */
+:root {
+  --laranja: #f5811f;
+  --amarelo: #f9c400;
+  --rosa: #e91e8c;
+  --roxo-claro: #c084fc;
+  --amarelo-claro: #fde68a;
+  --rosa-claro: #f9a8d4;
+  --cinza-escuro: #1a1a1a;
+  --cinza-card: #111111;
+  --branco: #ffffff;
+  --fundo: #fafafa;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: var(--fundo);
+  color: var(--cinza-escuro);
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 1.2rem 2rem;
+  background: var(--branco);
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav a {
+  text-decoration: none;
+  color: #444;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: var(--laranja);
+}
+
+/* ── HERO (logo + texto à esq, card à dir) ── */
+.hero {
+  background: var(--branco);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 4rem 3rem;
+  animation: fadeUp 0.7s ease both;
+}
+
+.hero-esquerda {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+  max-width: 480px;
+  flex: 1;
+}
+
+.hero-logo-img {
+  width: 280px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.hero-esquerda h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--cinza-escuro);
+  line-height: 1.4;
+}
+
+.hero-esquerda p {
+  font-size: 0.97rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+.hero-direita {
+  flex-shrink: 0;
+}
+
+/* ── CARD DE CONSULTA ── */
+.consulta-card {
+  background: var(--branco);
+  border: 1.5px solid #e5e5e5;
+  border-radius: 20px;
+  padding: 2.2rem 2rem;
+  width: 366px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.consulta-card h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  text-align: center;
+  color: var(--cinza-escuro);
+}
+
+.consulta-card input[type="text"] {
+  width: 100%;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  font-family: "Nunito", sans-serif;
+  outline: none;
+  transition: border-color 0.2s;
+  color: #444;
+}
+
+.consulta-card input[type="text"]:focus {
+  border-color: var(--laranja);
+}
+
+.btn-consultar {
+  background: var(--laranja);
+  color: var(--branco);
+  border: none;
+  border-radius: 10px;
+  padding: 0.85rem;
+  font-size: 0.95rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.15s;
+}
+
+.btn-consultar:hover {
+  background: #d96c10;
+  transform: translateY(-1px);
+}
+
+.termos {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: #666;
+  cursor: pointer;
+}
+
+.termos a {
+  color: var(--laranja);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* ── CARDS BENEFÍCIO ── */
+.beneficios-section {
+  background: var(--fundo);
+  padding: 3rem 2rem;
+  display: flex;
+  justify-content: center;
+  animation: fadeUp 0.8s 0.1s ease both;
+}
+
+.beneficios-cards {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  max-width: 860px;
+}
+
+.beneficio-card {
+  border-radius: 16px;
+  padding: 1.5rem 1.2rem;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.beneficio-card.azul {
+  border: 1.5px solid #93c5fd;
+  background: #eff6ff;
+}
+.beneficio-card.amarelo {
+  border: 1.5px solid #fde68a;
+  background: #fffbeb;
+}
+.beneficio-card.rosa {
+  border: 1.5px solid var(--rosa-claro);
+  background: #fdf2f8;
+}
+
+.beneficio-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.azul .beneficio-icon {
+  background: #bfdbfe;
+}
+.amarelo .beneficio-icon {
+  background: #fef08a;
+}
+.rosa .beneficio-icon {
+  background: #fbcfe8;
+}
+
+.beneficio-card p {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* ── QUEM TEM DIREITO ── */
+.direito {
+  background: var(--branco);
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  animation: fadeUp 0.8s 0.15s ease both;
+}
+
+.direito-inner {
+  display: flex;
+  gap: 3.5rem;
+  align-items: center;
+  max-width: 860px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.direito-texto {
+  flex: 1;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.direito-texto h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1.2;
+  color: var(--cinza-escuro);
+}
+
+.direito-texto > p {
+  font-size: 0.93rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Imagem bonequinho */
+.bonequinho-img {
+  width: 160px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.direito-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  flex: 1;
+  min-width: 280px;
+}
+
+.direito-item {
+  background: var(--cinza-card);
+  color: var(--branco);
+  border-radius: 16px;
+  padding: 1.4rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.direito-num {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.7rem;
+  font-weight: 900;
+  color: var(--branco);
+}
+
+.direito-item p {
+  font-size: 0.82rem;
+  color: #bbb;
+  line-height: 1.5;
+}
+
+/* ── COMO SOLICITAR ── */
+.solicitar {
+  background: var(--fundo);
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  animation: fadeUp 0.8s 0.2s ease both;
+}
+
+.solicitar h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.7rem;
+  font-weight: 900;
+  text-align: center;
+  color: var(--cinza-escuro);
+}
+
+.solicitar > p {
+  font-size: 0.95rem;
+  color: #666;
+  text-align: center;
+  max-width: 440px;
+  line-height: 1.6;
+  margin-top: -1rem;
+}
+
+.solicitar-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  max-width: 800px;
+  width: 100%;
+}
+
+.passo {
+  background: var(--branco);
+  border: 1.5px solid #e5e5e5;
+  border-radius: 16px;
+  padding: 1.4rem 1.3rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.2s;
+}
+
+.passo:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.passo-num {
+  background: var(--cinza-escuro);
+  color: var(--branco);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  font-size: 1rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.passo p {
+  font-size: 0.86rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* ── ROW IMPORTANTE + IMAGEM ── */
+.solicitar-bottom {
+  display: flex;
+  gap: 2rem;
+  max-width: 800px;
+  width: 100%;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.importante-box {
+  flex: 1;
+  min-width: 260px;
+}
+
+.importante-box h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 900;
+  margin-bottom: 0.8rem;
+}
+
+.importante-texto {
+  background: var(--cinza-card);
+  color: #ddd;
+  border-radius: 16px;
+  padding: 1.4rem 1.3rem;
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+/* Imagem mulher com criança em círculo */
+.mulher-img-wrapper {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  flex-shrink: 0;
+}
+
+.mulher-img-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 3px solid var(--amarelo);
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.mulher-img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.dot-laranja {
+  width: 14px;
+  height: 14px;
+  background: var(--laranja);
+  border-radius: 50%;
+  position: absolute;
+  bottom: 6px;
+  right: -4px;
+  z-index: 2;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: #111111;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  min-height: 220px;
+}
+
+.footer-nav {
+  flex: 1;
+  padding: 2.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.1rem;
+  border-right: 1px solid #2a2a2a;
+}
+
+.footer-nav a {
+  text-decoration: none;
+  color: #aaa;
+  font-size: 0.88rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.footer-nav a::after {
+  content: "∨";
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
+
+.footer-nav a:hover {
+  color: var(--branco);
+}
+
+.footer-logos {
+  flex: 1;
+  padding: 2.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.footer-logos-top {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.footer-logo-img {
+  height: 56px;
+  background: #1e1e1e;
+  border: 1.5px dashed #444;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #666;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  padding: 0.4rem 0.8rem;
+}
+
+.footer-logo-img.bilhete {
+  width: 110px;
+}
+.footer-logo-img.sptrans {
+  width: 90px;
+}
+.footer-logo-img.prefeitura {
+  width: 130px;
+  height: 70px;
+}
+
+.footer-logos-bottom {
+  display: flex;
+  align-items: center;
+}
+
+.footer-copy {
+  color: #555;
+  font-size: 0.75rem;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.6;
+  padding-top: 0.5rem;
+}
+
+.footer-copy a {
+  color: #777;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-copy a:hover {
+  color: #aaa;
+}
+
+/* Logos reais do footer */
+.footer-logo-real {
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.footer-logo-real.bilhete {
+  height: 40px;
+}
+.footer-logo-real.sptrans {
+  height: 36px;
+}
+.footer-logo-real.prefeitura {
+  height: 60px;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 820px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 3rem 1.5rem;
+  }
+
+  .hero-esquerda {
+    align-items: center;
+  }
+
+  .hero-direita {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .consulta-card {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 640px) {
+  nav {
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+  }
+  .direito-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .bonequinho-img {
+    display: none;
+  }
+  .solicitar-grid {
+    grid-template-columns: 1fr;
+  }
+  .direito-grid {
+    grid-template-columns: 1fr;
+  }
+  .solicitar-bottom {
+    flex-direction: column;
+    align-items: center;
+  }
+  .mulher-img-wrapper {
+    display: none;
+  }
+  footer {
+    flex-direction: column;
+  }
+  .footer-nav {
+    border-right: none;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .footer-logos-top {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}

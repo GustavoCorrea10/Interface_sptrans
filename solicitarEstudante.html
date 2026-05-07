@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bilhete do Professor 2026</title>
+    <link rel="stylesheet" href="./solicitarEstudante.css" />
+  </head>
+  <body>
+    <div class="page">
+      <!-- Topo vermelho -->
+      <div class="header">
+        <h1 class="title">Bem vindo</h1>
+        <p class="subtitle">
+          Informe seu documento abaixo,<br />
+          para verificar se já pode emitir ou solicitar a 2ª via do Bilhete
+          Único 2026.
+        </p>
+      </div>
+
+      <!-- Área de ondas + card -->
+      <div class="wave-area">
+        <!-- COLOQUE O CAMINHO DA SUA IMAGEM NO src ABAIXO -->
+        <img src="./assets/ondaFundo.png" alt="" class="wave-img" />
+
+        <!-- Card -->
+        <div class="card">
+          <!-- Tabs -->
+          <div class="tabs">
+            <button class="tab active" id="tab-cpf" onclick="switchTab('cpf')">
+              CPF
+            </button>
+            <button class="tab" id="tab-rne" onclick="switchTab('rne')">
+              RNE/CRNM
+            </button>
+          </div>
+
+          <!-- Formulário CPF -->
+          <div class="form-section" id="form-cpf">
+            <input
+              type="text"
+              class="input-field"
+              placeholder="Digite seu CPF"
+              id="cpf-input"
+              maxlength="14"
+              oninput="maskCPF(this)"
+            />
+            <button class="btn-enviar" onclick="handleEnviar()">ENVIAR</button>
+          </div>
+
+          <!-- Formulário RNE/CRNM -->
+          <div class="form-section hidden" id="form-rne">
+            <p class="rne-info">
+              Se você é estrangeiro(a), informe os dados do seu
+              <strong>RNE</strong> ou <strong>CRNM</strong> para consultar sua
+              elegibilidade.
+            </p>
+            <div class="rne-fields">
+              <input
+                type="text"
+                class="input-field rne-main"
+                placeholder="RNE / CRNM (estrang...)"
+              />
+              <input
+                type="text"
+                class="input-field rne-digit"
+                placeholder="Dígito"
+                maxlength="1"
+              />
+              <div class="select-wrapper">
+                <select class="input-field rne-uf">
+                  <option value="" disabled selected>UF Emissor</option>
+                  <option>AC</option>
+                  <option>AL</option>
+                  <option>AP</option>
+                  <option>AM</option>
+                  <option>BA</option>
+                  <option>CE</option>
+                  <option>DF</option>
+                  <option>ES</option>
+                  <option>GO</option>
+                  <option>MA</option>
+                  <option>MT</option>
+                  <option>MS</option>
+                  <option>MG</option>
+                  <option>PA</option>
+                  <option>PB</option>
+                  <option>PR</option>
+                  <option>PE</option>
+                  <option>PI</option>
+                  <option>RJ</option>
+                  <option>RN</option>
+                  <option>RS</option>
+                  <option>RO</option>
+                  <option>RR</option>
+                  <option>SC</option>
+                  <option>SP</option>
+                  <option>SE</option>
+                  <option>TO</option>
+                </select>
+                <span class="select-arrow">▼</span>
+              </div>
+            </div>
+            <input
+              type="text"
+              class="input-field cpf-estrang"
+              placeholder="CPF (Cadastro de Pessoa Física)"
+            />
+            <button class="btn-enviar" onclick="handleEnviar()">ENVIAR</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rodapé inferior -->
+      <div class="footer-bottom">
+        <p class="footer-copy">
+          © DNE - Documento Nacional do Estudante · Todos os Direitos Reservados
+        </p>
+        <div class="footer-logos">
+          <img
+            src="assets/LogoBilheteUnicoPreto.png"
+            alt="Bilhete Único"
+            class="footer-logo"
+          />
+          <img
+            src="assets/logoSpTransPreto.png"
+            alt="SPTrans"
+            class="footer-logo"
+          />
+          <img
+            src="assets/logoSãoPauloPreto.png"
+            alt="São Paulo"
+            class="footer-logo"
+          />
+        </div>
+      </div>
+    </div>
+
+    <script src="./solicitarEstudante.js"></script>
+  </body>
+</html>

@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bilhete Único - Meu Painel</title>
+    <link rel="stylesheet" href="./logado.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-inner">
+        <button class="header-menu-btn" id="openMenu" aria-label="Abrir menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="header-logo">
+          <img
+            src="./assets/LogoBilheteUnicoPreto.png"
+            alt="Logo Bilhete Único SPTrans"
+            class="img-logo-main"
+          />
+        </div>
+
+        <div class="header-actions">
+          <button class="header-notif" id="notifBtn" aria-label="Notificações">
+            <svg
+              width="20"
+              height="20"
+              fill="none"
+              stroke="#555"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+            </svg>
+            <span class="dot"></span>
+          </button>
+
+          <div class="profile-container">
+            <div class="header-avatar" id="profileBtn">G</div>
+            <div class="profile-dropdown" id="profileDropdown">
+              <div class="dropdown-item">
+                <svg
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="#555"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                Meu perfil
+              </div>
+              <div class="dropdown-item">
+                <svg
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="#555"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <rect
+                    x="3"
+                    y="11"
+                    width="18"
+                    height="11"
+                    rx="2"
+                    ry="2"
+                  ></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                Alterar senha
+              </div>
+              <hr />
+              <a
+                href="./outras_paginas/loginAtendimento.html"
+                class="dropdown-item logout"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="#555"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                  <polyline points="16 17 21 12 16 7"></polyline>
+                  <line x1="21" y1="12" x2="9" y2="12"></line>
+                </svg>
+                Sair
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <aside class="sidebar" id="sidebarMenu">
+      <div class="sidebar-header">
+        <button class="close-menu" id="closeMenu" aria-label="Fechar menu">
+          <svg
+            width="24"
+            height="24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-item active"><span class="icon">🏠</span> Início</div>
+        <div class="nav-item"><span class="icon">👤</span> Meu perfil</div>
+        <div class="nav-item"><span class="icon">💳</span> Meus cartões</div>
+        <div class="nav-group">
+          <div class="nav-item has-submenu">
+            <span class="icon">➕</span> Compra de créditos
+            <span class="arrow">▼</span>
+          </div>
+          <div class="submenu">
+            <div class="sub-item">Adicionar créditos</div>
+            <div class="sub-item">Histórico de compra</div>
+          </div>
+        </div>
+        <div class="nav-group">
+          <div class="nav-item has-submenu">
+            <span class="icon">📝</span> Nova solicitação
+            <span class="arrow">▼</span>
+          </div>
+          <div class="submenu">
+            <div class="sub-item">Compra de crédito</div>
+            <div class="sub-item">Comum</div>
+            <div class="sub-item">Pessoa com Deficiência</div>
+          </div>
+        </div>
+        <a
+          href="./outras_paginas/loginAtendimento.html"
+          class="nav-item logout-sidebar"
+        >
+          <span class="icon">⤶</span> Sair da conta
+        </a>
+      </nav>
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="notif-modal" id="notifModal">
+      <div class="notif-header">
+        <h3>Notificações</h3>
+        <button id="closeNotif" aria-label="Fechar Notificações">×</button>
+      </div>
+      <div class="notif-tabs">
+        <button class="active">Não lidas <span>4</span></button>
+        <button>Lidas</button>
+        <button>Todas</button>
+      </div>
+      <div class="notif-list">
+        <div class="notif-card">
+          <div class="notif-card-header">
+            <span class="id">7166671</span>
+            <button class="mark-read">✓ Marcar como lida</button>
+          </div>
+          <h4>SERVIÇO DE CONFIRMAÇÃO DE CONTATO</h4>
+          <div class="notif-details">
+            <span class="date">24/02/2026</span>
+            <span class="time">12:56</span>
+          </div>
+          <p class="status">Status: <strong>Concluído</strong></p>
+          <a href="#" class="saiba-mais">Saiba mais ></a>
+        </div>
+
+        <div class="notif-card">
+          <div class="notif-card-header">
+            <span class="id">7166511</span>
+            <button class="mark-read">✓ Marcar como lida</button>
+          </div>
+          <h4>SERVIÇO DE CONFIRMAÇÃO DE CONTATO</h4>
+          <div class="notif-details">
+            <span class="date">23/02/2026</span>
+            <span class="time">09:15</span>
+          </div>
+          <p class="status">Status: <strong>Em análise</strong></p>
+          <a href="#" class="saiba-mais">Saiba mais ></a>
+        </div>
+      </div>
+    </div>
+
+    <main class="main">
+      <div class="content-grid">
+        <section aria-labelledby="cartoes-title">
+          <h2 class="section-title" id="cartoes-title">Meus Cartões</h2>
+          <div class="cards-grid">
+            <div
+              class="card-item"
+              tabindex="0"
+              role="button"
+              aria-label="Cartão Estudante"
+            >
+              <div class="card-type">Estudante</div>
+              <div class="card-number-row">
+                <span class="card-number">XXXX XXXX XX</span>
+                <button class="card-eye-btn" aria-label="Mostrar número">
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                </button>
+              </div>
+              <div class="card-balance-label">Saldo da Carteira</div>
+              <div class="card-balance">R$ XX,XX</div>
+              <div class="card-update">
+                Saldo apurado até: 29/04/2026, 22:15
+              </div>
+            </div>
+
+            <div
+              class="card-item"
+              tabindex="0"
+              role="button"
+              aria-label="Cartão Estudante"
+            >
+              <div class="card-type">Estudante</div>
+              <div class="card-number-row">
+                <span class="card-number">XXXX XXXX XX</span>
+                <button class="card-eye-btn" aria-label="Mostrar número">
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                </button>
+              </div>
+              <div class="card-balance-label">Saldo da Carteira</div>
+              <div class="card-balance">R$ XX,XX</div>
+              <div class="card-update">
+                Saldo apurado até: 29/04/2026, 22:15
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section aria-labelledby="servicos-title">
+          <h2 class="section-title" id="servicos-title">Serviços</h2>
+          <div class="services-grid">
+            <div class="service-item" tabindex="0" role="button">
+              <img
+                src="https://atendimento.sptrans.com.br/assets/service-icons/compra_credito.png"
+                alt="Compra de Crédito"
+                class="service-img-icon"
+              />
+              <span class="service-label">Compra de Crédito</span>
+            </div>
+
+            <div class="service-item" tabindex="0" role="button">
+              <img
+                src="https://atendimento.sptrans.com.br/assets/service-icons/comum_us.png"
+                alt="Comum"
+                class="service-img-icon"
+              />
+              <span class="service-label">Comum</span>
+            </div>
+
+            <div class="service-item" tabindex="0" role="button">
+              <img
+                src="https://atendimento.sptrans.com.br/assets/service-icons/idoso-us.png"
+                alt="Pessoa Idosa"
+                class="service-img-icon"
+              />
+              <span class="service-label">Pessoa Idosa</span>
+            </div>
+
+            <div class="service-item" tabindex="0" role="button">
+              <img
+                src="https://atendimento.sptrans.com.br/assets/service-icons/mamae_tarifa_zero_us.svg"
+                alt="Mamãe Tarifa Zero"
+                class="service-img-icon"
+              />
+              <span class="service-label">Mamãe Tarifa Zero</span>
+            </div>
+
+            <div class="service-item" tabindex="0" role="button">
+              <img
+                src="https://atendimento.sptrans.com.br/assets/service-icons/estudante_us.png"
+                alt="Estudante"
+                class="service-img-icon"
+              />
+              <span class="service-label">Estudante</span>
+            </div>
+
+            <div class="service-item" tabindex="0" role="button">
+              <img
+                src="https://atendimento.sptrans.com.br/assets/service-icons/professor_us.png"
+                alt="Professor"
+                class="service-img-icon"
+              />
+              <span class="service-label">Professor</span>
+            </div>
+
+            <div class="service-item" tabindex="0" role="button">
+              <img
+                src="https://atendimento.sptrans.com.br/assets/service-icons/obeso_us.png"
+                alt="Pessoa Obesa"
+                class="service-img-icon"
+              />
+              <span class="service-label">Pessoa Obesa</span>
+            </div>
+
+            <div class="service-item" tabindex="0" role="button">
+              <img
+                src="https://atendimento.sptrans.com.br/assets/service-icons/pcd_us.svg"
+                alt="Pessoa Com Deficiência"
+                class="service-img-icon"
+              />
+              <span class="service-label">Pessoa Com Deficiência</span>
+            </div>
+
+            <div class="service-item" tabindex="0" role="button">
+              <img
+                src="https://atendimento.sptrans.com.br/assets/service-icons/gestante_us.svg"
+                alt="Pessoa Gestante"
+                class="service-img-icon"
+              />
+              <span class="service-label">Pessoa Gestante</span>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section aria-labelledby="proto-title">
+        <h2 class="section-title" id="proto-title" style="margin-bottom: 16px">
+          Minhas Solicitações
+        </h2>
+        <div class="protocols-section">
+          <div class="protocols-search-bar">
+            <input
+              type="text"
+              class="protocols-search-input"
+              placeholder="Buscar por Protocolo ou serviço"
+              aria-label="Buscar por Protocolo ou serviço"
+            />
+            <div class="protocols-filter">
+              <select class="protocols-select" aria-label="Filtrar por status">
+                <option value="">Todos</option>
+                <option value="aguardando">Aguardando</option>
+                <option value="aprovado">Aprovado</option>
+                <option value="recusado">Recusado</option>
+              </select>
+              <button class="protocols-filter-btn" aria-label="Filtrar">
+                <svg
+                  width="16"
+                  height="16"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2.5"
+                  viewBox="0 0 24 24"
+                >
+                  <polygon
+                    points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <table
+            class="protocols-table"
+            role="table"
+            aria-label="Tabela de solicitações"
+          >
+            <thead>
+              <tr>
+                <th scope="col">Protocolo</th>
+                <th scope="col">Serviço</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="protocol-number">0101010101</span></td>
+                <td>
+                  <div class="protocol-service-name">
+                    Validação de Identidade
+                  </div>
+                  <div class="protocol-service-date">
+                    Atualizado em 05/09/2025 00:26
+                  </div>
+                </td>
+                <td>
+                  <div style="display: flex; align-items: center; gap: 8px">
+                    <span class="status-badge aguardando"
+                      >Aguardando Informações Pessoais</span
+                    >
+                    <svg
+                      width="14"
+                      height="14"
+                      fill="none"
+                      stroke="#E65100"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="protocols-pagination">
+            <div class="pagination-info">
+              <span>Itens por página</span>
+              <select class="pagination-select" aria-label="Itens por página">
+                <option>10</option>
+                <option>25</option>
+                <option>50</option>
+              </select>
+            </div>
+            <div class="pagination-controls">
+              <span>1 de 1</span>
+              <button
+                class="pagination-btn"
+                disabled
+                aria-label="Primeira página"
+              >
+                &#10073;&#8592;
+              </button>
+              <button
+                class="pagination-btn"
+                disabled
+                aria-label="Página anterior"
+              >
+                &#8592;
+              </button>
+              <button
+                class="pagination-btn"
+                disabled
+                aria-label="Próxima página"
+              >
+                &#8594;
+              </button>
+              <button
+                class="pagination-btn"
+                disabled
+                aria-label="Última página"
+              >
+                &#8594;&#10073;
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <nav class="footer-nav" aria-label="Links do rodapé">
+        <div class="footer-nav-item">Para você</div>
+        <div class="footer-nav-item">Bilhete Único</div>
+        <div class="footer-nav-item">Atendimento especializado</div>
+        <div class="footer-nav-item">Recargas</div>
+        <div class="footer-nav-item">Tarifas</div>
+      </nav>
+
+      <div class="footer-bottom">
+        <div class="footer-logos">
+          <img
+            src="https://atendimento.sptrans.com.br/assets/header/bu_white.png"
+            alt="Bilhete Único"
+            class="footer-img-logo"
+          />
+          <div class="footer-divider"></div>
+          <img
+            src="https://atendimento.sptrans.com.br/assets/footer/logo-horizontal-branco.png"
+            alt="SPTrans"
+            class="footer-img-logo"
+          />
+          <div class="footer-divider"></div>
+          <img
+            src="https://atendimento.sptrans.com.br/assets/header/logo-prefeitura-branco.png"
+            alt="Prefeitura de São Paulo"
+            class="footer-img-logo"
+          />
+        </div>
+
+        <div class="footer-legal">
+          ©2026 São Paulo Transporte S/A &nbsp;•&nbsp;
+          <a href="#">Política de Privacidade</a> &nbsp;•&nbsp;
+          <a href="#">Termo de Adesão</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./logado.js"></script>
+  </body>
+</html>
